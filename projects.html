@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects | Devashri Builders</title>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                50: '#f0f7f0', 100: '#dceedd', 200: '#b8dcba', 300: '#86c289', 400: '#52a257',
+                500: '#2d8233', 600: '#1e6725', 700: '#18511e', 800: '#14401a', 900: '#0f3015',
+              },
+              earth: {
+                50: '#fdf8f3', 100: '#f9ede0', 200: '#f2d8bc', 300: '#e8bc8f', 400: '#dc9a5e',
+                500: '#d07d3a', 600: '#b8622a', 700: '#984c22', 800: '#7c3d1e', 900: '#66331a',
+              },
+              sand: {
+                50: '#fdfaf5', 100: '#f8f0e3', 200: '#f0dfc4', 300: '#e6c99d', 400: '#d9ae72',
+                500: '#cc9550', 600: '#b47c3a', 700: '#94622e', 800: '#784f27', 900: '#634122',
+              },
+              slate: {
+                50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8',
+                500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+              },
+            },
+            fontFamily: {
+              heading: ['Playfair Display', 'Georgia', 'serif'],
+              body: ['Inter', 'system-ui', 'sans-serif'],
+              accent: ['Montserrat', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              card: '0 2px 16px rgba(0,0,0,0.08)',
+              'card-hover': '0 8px 32px rgba(0,0,0,0.14)',
+              hero: '0 24px 80px rgba(0,0,0,0.18)',
+            },
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS Core & Data -->
+    <script src="js/data.js" defer></script>
+    <script src="js/shared.js" defer></script>
+    <script src="js/projects.js" defer></script>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Navbar Container -->
+    <div id="navbar"></div>
+
+    <!-- Header -->
+    <div class="bg-forest-800 pt-28 pb-12 text-left">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">All Developments</p>
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Our Projects</h1>
+        <p class="text-forest-300 max-w-xl">
+          From planned layouts to premium developments — explore all Devashri Builders plot projects across UP.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Filter Buttons Container -->
+      <div class="flex flex-wrap gap-2 mb-8" id="projects-filter-container">
+        <!-- Rendered dynamically by projects.js -->
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+        <!-- Rendered dynamically by projects.js -->
+      </div>
+
+      <!-- Offer CTA Banner -->
+      <div class="mt-16 bg-forest-700 rounded-2xl p-8 md:p-12 text-center text-white">
+        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Pre-launch Offer</p>
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+          Green Valley Enclave — Launching August 2025
+        </h2>
+        <p class="text-forest-200 max-w-lg mx-auto mb-6 leading-relaxed">
+          Register your interest now for pre-launch pricing. 200 plots in a fully gated community on Mirzapur Road, Varanasi.
+        </p>
+        <button class="btn-secondary" onclick="window.openLeadModal('Register Interest', 'Green Valley Enclave Pre-Launch')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Register Interest
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsapp-btn"></div>
+
+    <!-- Lead Modal container -->
+    <div id="lead-modal"></div>
+  </body>
+</html>

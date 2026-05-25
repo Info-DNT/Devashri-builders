@@ -1,30 +1,6 @@
-export type PlotStatus = 'available' | 'sold' | 'reserved';
+// ── Devashri Builders — Global Datastore ──
 
-export interface Plot {
-  id: string;
-  name: string;
-  project: string;
-  location: string;
-  city: string;
-  area: number; // sq ft
-  dimensions: string;
-  pricePerSqft: number;
-  totalPrice: number;
-  status: PlotStatus;
-  featured: boolean;
-  rera: string;
-  facing: string;
-  category: 'residential' | 'commercial' | 'agricultural';
-  amenities: string[];
-  nearby: { label: string; distance: string }[];
-  paymentPlans: { name: string; description: string }[];
-  images: string[];
-  mapEmbed?: string;
-  description: string;
-  highlights: string[];
-}
-
-export const plots: Plot[] = [
+window.plotsData = [
   {
     id: 'kashiPuram-001',
     name: 'Kashi Puram Green City – Plot A15',
@@ -216,9 +192,160 @@ export const plots: Plot[] = [
   },
 ];
 
-export const getPlotById = (id: string) => plots.find(p => p.id === id);
-export const getFeaturedPlots = () => plots.filter(p => p.featured);
-export const getAvailablePlots = () => plots.filter(p => p.status === 'available');
+window.projectsData = [
+  {
+    id: 'kashi-puram',
+    name: 'Kashi Puram Green City',
+    location: 'Chopan-Sindhuriya Marg, Varanasi',
+    city: 'Varanasi',
+    status: 'ongoing',
+    totalPlots: 120,
+    availablePlots: 48,
+    priceRange: '₹599/sqft',
+    plotSizes: '27×50, 27×55 sq ft',
+    area: '10 acres',
+    launchDate: 'March 2024',
+    highlights: ['25 Ft Roads', 'Sewage System', 'Water at 60 Ft', 'RERA Approved'],
+    image: 'https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'A thoughtfully planned residential township on Chopan-Sindhuriya Marg offering affordable premium plots with all amenities. Close to Varanasi-Shaktinagar highway and Chopan Hospital.',
+  },
+  {
+    id: 'vinayak-puram',
+    name: 'Vinayak Puram Society',
+    location: 'Robertsganj, Sonbhadra',
+    city: 'Sonbhadra',
+    status: 'ongoing',
+    totalPlots: 80,
+    availablePlots: 32,
+    priceRange: '₹699/sqft',
+    plotSizes: '25×60, 25×55 sq ft',
+    area: '7 acres',
+    launchDate: 'January 2024',
+    highlights: ['Govt Road Touch', '20 Ft Internal Roads', 'Clear Title', 'EMI Available'],
+    image: 'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Government road-facing layout in the heart of Robertsganj. All plots have direct road access, clear titles, and flexible EMI options. Perfect for families and investors alike.',
+  },
+  {
+    id: 'bichchhi-layout',
+    name: 'Bichchhi Residential Layout',
+    location: 'Bichchhi, Varanasi-Shaktinagar Highway',
+    city: 'Varanasi',
+    status: 'ongoing',
+    totalPlots: 45,
+    availablePlots: 12,
+    priceRange: '₹1,051/sqft',
+    plotSizes: '25×60, 30×60 sq ft',
+    area: '5 acres',
+    launchDate: 'September 2023',
+    highlights: ['Highway Frontage', 'Corner Plots Available', 'High Appreciation', 'RERA Registered'],
+    image: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Premium plots directly on the Varanasi-Shaktinagar Highway at Bichchhi. Ideal for both residential and commercial investment with guaranteed high appreciation.',
+  },
+  {
+    id: 'green-valley',
+    name: 'Green Valley Enclave',
+    location: 'Mirzapur Road, Varanasi',
+    city: 'Varanasi',
+    status: 'upcoming',
+    totalPlots: 200,
+    availablePlots: 200,
+    priceRange: '₹750/sqft (Pre-launch)',
+    plotSizes: '30×50, 40×60 sq ft',
+    area: '18 acres',
+    launchDate: 'August 2025',
+    highlights: ['Pre-launch Pricing', 'Gated Community', 'Club House', 'RERA Registration Underway'],
+    image: 'https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Our flagship upcoming project — a fully gated residential enclave on Mirzapur Road with club house, landscaped parks, and premium internal infrastructure. Pre-launch bookings open.',
+  },
+  {
+    id: 'surya-nagar',
+    name: 'Surya Nagar Colony',
+    location: 'Chunar Road, Mirzapur',
+    city: 'Mirzapur',
+    status: 'completed',
+    totalPlots: 60,
+    availablePlots: 0,
+    priceRange: '₹420–480/sqft',
+    plotSizes: '25×50 sq ft',
+    area: '4 acres',
+    launchDate: 'October 2022',
+    highlights: ['Fully Sold Out', 'All Registries Done', 'Community Built'],
+    image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800',
+    description: 'Successfully completed residential layout at Chunar Road, Mirzapur. All 60 plots sold, registered, and handed over. A testament to our commitment to on-time delivery.',
+  },
+];
 
-export const cities = [...new Set(plots.map(p => p.city))];
-export const projectNames = [...new Set(plots.map(p => p.project))];
+window.blogPostsData = [
+  {
+    id: '1',
+    title: '5 Things to Check Before Buying a Plot in UP',
+    slug: '5-things-to-check-before-buying-plot-up',
+    excerpt: 'From RERA registration to soil testing — here is a practical checklist every first-time plot buyer in Uttar Pradesh should go through before signing any documents.',
+    category: 'Buyer Guide',
+    readTime: 5,
+    date: 'April 12, 2025',
+    author: 'Rajesh Verma',
+    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['buyer guide', 'legal', 'UP'],
+  },
+  {
+    id: '2',
+    title: 'Why Varanasi Outskirts Are the Next Big Investment Zone',
+    slug: 'varanasi-outskirts-investment-zone',
+    excerpt: 'Infrastructure growth, highway expansion, and rising demand from NRIs are making Varanasi\'s peripheral areas some of the most attractive land investment destinations.',
+    category: 'Location Analysis',
+    readTime: 7,
+    date: 'March 28, 2025',
+    author: 'Priya Singh',
+    image: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['investment', 'varanasi', 'location'],
+  },
+  {
+    id: '3',
+    title: 'Understanding RERA for Plot Buyers: A Simple Guide',
+    slug: 'understanding-rera-plot-buyers',
+    excerpt: 'RERA protections extend to plot buyers too. Learn what a RERA-registered plot means, what documents to verify, and how to check registration status online.',
+    category: 'Legal Guide',
+    readTime: 6,
+    date: 'February 15, 2025',
+    author: 'Amit Tiwari',
+    image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['rera', 'legal', 'documentation'],
+  },
+  {
+    id: '4',
+    title: 'Plot vs Flat: Which is the Smarter Investment in 2025?',
+    slug: 'plot-vs-flat-smarter-investment-2025',
+    excerpt: 'Comparing appreciation rates, rental yields, liquidity, and long-term value — a data-driven look at why plots consistently outperform flats for wealth creation.',
+    category: 'Investment Insight',
+    readTime: 8,
+    date: 'January 20, 2025',
+    author: 'Rajesh Verma',
+    image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['investment', 'comparison', 'wealth'],
+  },
+  {
+    id: '5',
+    title: 'Complete Guide to Plot Registration Process in Uttar Pradesh',
+    slug: 'plot-registration-process-uttar-pradesh',
+    excerpt: 'Step-by-step walkthrough of the plot registration process in UP — documents needed, stamp duty rates, online registration portal, and common mistakes to avoid.',
+    category: 'Legal Guide',
+    readTime: 10,
+    date: 'December 5, 2024',
+    author: 'Amit Tiwari',
+    image: 'https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['registration', 'legal', 'documentation'],
+  },
+  {
+    id: '6',
+    title: 'NRI Guide: How to Buy a Plot in India from Abroad',
+    slug: 'nri-guide-buy-plot-india',
+    excerpt: 'Everything an NRI needs to know about purchasing land in India — FEMA regulations, power of attorney, repatriation of funds, and our dedicated NRI assistance service.',
+    category: 'NRI Corner',
+    readTime: 9,
+    date: 'November 10, 2024',
+    author: 'Priya Singh',
+    image: 'https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=800',
+    tags: ['nri', 'investment', 'legal'],
+  },
+];

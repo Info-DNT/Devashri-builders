@@ -1,19 +1,541 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BhoomiSeva — Plots & Land | Varanasi, Sonbhadra, Mirzapur</title>
-    <meta name="description" content="RERA-approved residential plots in Varanasi, Sonbhadra and Mirzapur. Clear titles, transparent pricing, flexible EMI. BhoomiSeva — your trusted plot partner in Eastern UP." />
-    <meta property="og:title" content="BhoomiSeva — Plots & Land" />
-    <meta property="og:description" content="Legally clear residential plots in Eastern UP. RERA registered. Transparent pricing." />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devashri Builders — Plots & Land | Varanasi, Sonbhadra, Mirzapur</title>
+  <meta name="description"
+    content="RERA-approved residential plots in Varanasi, Sonbhadra and Mirzapur. Clear titles, transparent pricing, flexible EMI. BhoomiSeva — your trusted plot partner in Eastern UP." />
+  <meta property="og:title" content="Devashri Builders — Plots & Land" />
+  <meta property="og:description"
+    content="Legally clear residential plots in Eastern UP. RERA registered. Transparent pricing." />
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#f0f7f0', 100: '#dceedd', 200: '#b8dcba', 300: '#86c289', 400: '#52a257',
+              500: '#2d8233', 600: '#1e6725', 700: '#18511e', 800: '#14401a', 900: '#0f3015',
+            },
+            earth: {
+              50: '#fdf8f3', 100: '#f9ede0', 200: '#f2d8bc', 300: '#e8bc8f', 400: '#dc9a5e',
+              500: '#d07d3a', 600: '#b8622a', 700: '#984c22', 800: '#7c3d1e', 900: '#66331a',
+            },
+            sand: {
+              50: '#fdfaf5', 100: '#f8f0e3', 200: '#f0dfc4', 300: '#e6c99d', 400: '#d9ae72',
+              500: '#cc9550', 600: '#b47c3a', 700: '#94622e', 800: '#784f27', 900: '#634122',
+            },
+            slate: {
+              50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8',
+              500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+            },
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            accent: ['Montserrat', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 2px 16px rgba(0,0,0,0.08)',
+            'card-hover': '0 8px 32px rgba(0,0,0,0.14)',
+            hero: '0 24px 80px rgba(0,0,0,0.18)',
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JS Core & Data -->
+  <script src="js/data.js" defer></script>
+  <script src="js/shared.js" defer></script>
+  <script src="js/home.js" defer></script>
+</head>
+
+<body>
+  <!-- Navbar Container -->
+  <div id="navbar"></div>
+
+  <!-- Main Content -->
+  <main class="overflow-x-hidden">
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-hero"></div>
+      <div class="absolute inset-0 bg-cover bg-center opacity-30"
+        style="background-image: url('https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=1600')">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+      <!-- Decorative shapes -->
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-earth-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-sand-500/8 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-33 pb-26 text-center">
+        <div
+          class="inline-flex items-center gap-2 bg-earth-500/20 border border-earth-400/30 text-earth-200 text-xs font-accent font-semibold px-4 py-2 rounded-full mb-8 backdrop-blur-sm">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+          </svg>
+          <span>Exclusive Plots & Residential Land — Uttar Pradesh</span>
+        </div>
+
+        <h1
+          class="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 max-w-5xl mx-auto">
+          Own a Piece of Earth. <span class="text-gradient-warm italic block sm:inline">Build Your Legacy.</span>
+        </h1>
+
+        <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+          Legally clear, RERA-approved residential plots in Varanasi, Sonbhadra & Mirzapur. Transparent pricing.
+          Flexible payment. Complete peace of mind.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button data-toggle="modal" data-title="Book a Free Site Visit" class="btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Book Free Site Visit
+          </button>
+          <a href="plots.html"
+            class="inline-flex items-center gap-2 text-slate-300 hover:text-white font-accent font-semibold transition-colors">
+            Explore All Plots
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator (positioned relative to the entire min-h-screen hero section) -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-float">
+        <span class="text-slate-400 text-xs font-accent">Scroll to explore</span>
+        <div class="w-5 h-8 rounded-full border-2 border-slate-500/50 flex items-start justify-center pt-1">
+          <div class="w-1 h-2 bg-earth-400 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stats Trust Bar ──────────────────────────────────── -->
+    <section class="bg-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100">
+          <div class="flex flex-col items-center justify-center py-8 px-6 gap-1 text-center">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-slate-800">8+</span>
+            <span class="text-slate-500 text-sm font-accent">Years Experience</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-8 px-6 gap-1 text-center">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-slate-800">500+</span>
+            <span class="text-slate-500 text-sm font-accent">Plots Sold</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-8 px-6 gap-1 text-center">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-slate-800">1,200+</span>
+            <span class="text-slate-500 text-sm font-accent">Happy Families</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-8 px-6 gap-1 text-center">
+            <span class="font-heading text-3xl sm:text-4xl font-bold text-slate-800">5</span>
+            <span class="text-slate-500 text-sm font-accent">Active Projects</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Plots ───────────────────────────────────── -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div class="text-left">
+            <p class="section-label mb-2">Handpicked for You</p>
+            <h2 class="section-title">Featured Plots</h2>
+            <p class="section-subtitle mt-3">
+              Carefully selected plots with clear titles, prime locations, and the best value for your investment.
+            </p>
+          </div>
+          <a href="plots.html" class="btn-outline whitespace-nowrap flex-shrink-0 self-start md:self-auto">
+            View All Plots
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="featured-plots-grid">
+          <!-- Rendered Dynamically by home.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why Choose Us ────────────────────────────────────── -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll text-center max-w-3xl mx-auto mb-16">
+          <p class="section-label mb-2">Our Promise</p>
+          <h2 class="section-title mb-4">Why Families Trust Devashri Builders</h2>
+          <p class="section-subtitle mx-auto text-center">
+            We are not just plot sellers — we are partners in your land journey, with a focus on integrity,
+            transparency, and long-term value.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Security -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Legal Clarity Guaranteed</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Every plot comes with verified title, RERA approval, NA
+              order, and all government approvals. Zero legal ambiguity.</p>
+          </div>
+          <!-- Location -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                <line x1="8" y1="2" x2="8" y2="18"></line>
+                <line x1="16" y1="6" x2="16" y2="22"></line>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Prime Location Intelligence</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">We only acquire land near highways, hospitals, and growth
+              corridors. Every location is backed by infrastructure research.</p>
+          </div>
+          <!-- Green environment -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <path
+                  d="M12 2.25a.75.75 0 0 1 .75.75v3.25h3.25a.75.75 0 0 1 0 1.5H12.75V11h3.25a.75.75 0 0 1 0 1.5H12.75v3.25a.75.75 0 0 1-1.5 0V12.5H8a.75.75 0 0 1 0-1.5h3.25V7.75H8a.75.75 0 0 1 0-1.5h3.25V3a.75.75 0 0 1 .75-.75z" />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Clean, Green Environments</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Our layouts prioritize green spaces, wide roads, and clean
+              surroundings — not just plot count.</p>
+          </div>
+          <!-- Support -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">End-to-End Support</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">From site visit to registry — our team handles
+              documentation, loan assistance, and registration.</p>
+          </div>
+          <!-- Appreciation -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Proven Appreciation</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Our past projects have delivered 40–80% appreciation in
+              3–5 years. We invest where growth is certain.</p>
+          </div>
+          <!-- Pricing -->
+          <div
+            class="animate-on-scroll p-6 rounded-2xl border border-slate-100 hover:border-forest-200 hover:bg-forest-50/30 transition-all duration-300 group text-left">
+            <div
+              class="w-12 h-12 bg-forest-100 group-hover:bg-forest-200 rounded-xl flex items-center justify-center mb-4 transition-colors">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                class="w-5 h-5 text-forest-600">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-2">Transparent Pricing</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">No hidden charges. What you see is what you pay. All
+              taxes, registration costs disclosed upfront.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How It Works ─────────────────────────────────────── -->
+    <section class="py-20 bg-forest-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll text-center max-w-2xl mx-auto mb-16">
+          <p class="text-earth-400 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Simple Process</p>
+          <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">How to Buy Your Plot</h2>
+          <p class="text-forest-300 leading-relaxed">From browsing to registry — our process is designed to be simple,
+            transparent, and stress-free.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 1 -->
+          <div class="animate-on-scroll text-center">
+            <div
+              class="w-16 h-16 bg-forest-700 border-2 border-forest-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="font-accent font-bold text-earth-400 text-lg">01</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Browse & Select</h3>
+            <p class="text-forest-300 text-sm leading-relaxed">Explore our plots online — filter by location, size, and
+              budget. Shortlist your favorites.</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="animate-on-scroll text-center">
+            <div
+              class="w-16 h-16 bg-forest-700 border-2 border-forest-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="font-accent font-bold text-earth-400 text-lg">02</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Book a Site Visit</h3>
+            <p class="text-forest-300 text-sm leading-relaxed">Schedule a free site visit at your convenience. Our team
+              will guide you personally.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="animate-on-scroll text-center">
+            <div
+              class="w-16 h-16 bg-forest-700 border-2 border-forest-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="font-accent font-bold text-earth-400 text-lg">03</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Choose Your Plot</h3>
+            <p class="text-forest-300 text-sm leading-relaxed">Select your preferred plot, finalize dimensions, facing,
+              and payment plan.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="animate-on-scroll text-center">
+            <div
+              class="w-16 h-16 bg-forest-700 border-2 border-forest-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <span class="font-accent font-bold text-earth-400 text-lg">04</span>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-2">Register & Celebrate</h3>
+            <p class="text-forest-300 text-sm leading-relaxed">Complete documentation and registry with our full
+              assistance. The land is yours.</p>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll text-center mt-12">
+          <button data-toggle="modal" data-title="Start with a Free Site Visit" class="btn-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Start with a Free Site Visit
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Upcoming Projects ────────────────────────────────── -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div class="text-left">
+            <p class="section-label mb-2">Active & New Launches</p>
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-subtitle mt-3">Thoughtfully planned residential layouts with all amenities, legal
+              clearances, and growth potential.</p>
+          </div>
+          <a href="projects.html" class="btn-outline whitespace-nowrap flex-shrink-0 self-start md:self-auto">
+            All Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="ongoing-projects-grid">
+          <!-- Rendered Dynamically by home.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA Banner ───────────────────────────────────────── -->
+    <section class="py-20 relative overflow-hidden bg-earth-600 text-white">
+      <div
+        class="absolute inset-0 bg-[url('https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center opacity-10">
+      </div>
+      <div class="absolute inset-0 bg-earth-700/50"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="animate-on-scroll">
+          <p class="text-earth-200 text-sm font-accent font-semibold tracking-widest uppercase mb-3">Limited
+            Availability</p>
+          <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            Ready to Find Your <br class="hidden sm:block" /> Perfect Plot?
+          </h2>
+          <p class="text-earth-100/80 text-lg max-w-xl mx-auto mb-8">
+            Schedule a free site visit today and see your future land in person. No commitment required.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <button data-toggle="modal" data-title="Book Free Site Visit"
+              class="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-earth-700 font-accent font-semibold px-8 py-4 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5 text-base">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Book Free Site Visit
+            </button>
+            <a href="tel:+917752957897"
+              class="inline-flex items-center gap-2 bg-transparent border-2 border-white/60 hover:border-white text-white font-accent font-semibold px-8 py-4 rounded-xl transition-all text-base">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Testimonials ─────────────────────────────────────── -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll text-center max-w-2xl mx-auto mb-14">
+          <p class="section-label mb-2">Customer Stories</p>
+          <h2 class="section-title mb-3">Families Who Found Their Ground</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Suresh -->
+          <div class="animate-on-scroll card p-6 text-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              class="w-8 h-8 text-forest-200 mb-4">
+              <path d="M3 21c3-3 7-3 10 0M3 10h18M3 6h18M3 14h18M3 18h18" />
+            </svg>
+            <p class="text-slate-700 text-sm leading-relaxed mb-5">"We were looking for a plot near Varanasi for 2
+              years. Devashri Builders made the process so transparent — no hidden costs, clear documents. Our plot in
+              Kashi Puram Green City is everything we wanted."</p>
+            <div class="flex items-center gap-1 mb-4 text-earth-500">
+              ★ ★ ★ ★ ★
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <img
+                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Suresh Kumar Gupta" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <p class="font-accent font-semibold text-slate-900 text-sm">Suresh Kumar Gupta</p>
+                <p class="text-slate-500 text-xs">Varanasi</p>
+              </div>
+            </div>
+          </div>
+          <!-- Priya -->
+          <div class="animate-on-scroll card p-6 text-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              class="w-8 h-8 text-forest-200 mb-4">
+              <path d="M3 21c3-3 7-3 10 0M3 10h18M3 6h18M3 14h18M3 18h18" />
+            </svg>
+            <p class="text-slate-700 text-sm leading-relaxed mb-5">"As an NRI I was skeptical about buying land
+              remotely. The team handled everything — power of attorney, site visits on video call, documents couriered
+              to Dubai. Absolutely hassle-free."</p>
+            <div class="flex items-center gap-1 mb-4 text-earth-500">
+              ★ ★ ★ ★ ★
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <img
+                src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Priya Verma" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <p class="font-accent font-semibold text-slate-900 text-sm">Priya Verma</p>
+                <p class="text-slate-500 text-xs">NRI – Dubai</p>
+              </div>
+            </div>
+          </div>
+          <!-- Rajendra -->
+          <div class="animate-on-scroll card p-6 text-left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              class="w-8 h-8 text-forest-200 mb-4">
+              <path d="M3 21c3-3 7-3 10 0M3 10h18M3 6h18M3 14h18M3 18h18" />
+            </svg>
+            <p class="text-slate-700 text-sm leading-relaxed mb-5">"Bought a plot in Vinayak Puram Society for my son's
+              future. The price was fair, the area is well-planned, and within 2 years it's already appreciated
+              significantly. Highly recommend."</p>
+            <div class="flex items-center gap-1 mb-4 text-earth-500">
+              ★ ★ ★ ★ ★
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <img
+                src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Rajendra Prasad" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <p class="font-accent font-semibold text-slate-900 text-sm">Rajendra Prasad</p>
+                <p class="text-slate-500 text-xs">Sonbhadra</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Blog Preview ─────────────────────────────────────── -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-on-scroll flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div class="text-left">
+            <p class="section-label mb-2">Knowledge Centre</p>
+            <h2 class="section-title">Land Investment Insights</h2>
+            <p class="section-subtitle mt-3">Guides, legal tips, and market analysis — everything you need before buying
+              a plot.</p>
+          </div>
+          <a href="blog.html" class="btn-outline whitespace-nowrap flex-shrink-0 self-start md:self-auto">
+            All Articles
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="latest-blogs-grid">
+          <!-- Rendered Dynamically by home.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer"></div>
+
+  <!-- WhatsApp Floating Button -->
+  <div id="whatsapp-btn"></div>
+
+  <!-- Lead Modal container -->
+  <div id="lead-modal"></div>
+</body>
+
 </html>

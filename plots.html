@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Plots | Devashri Builders</title>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                50: '#f0f7f0', 100: '#dceedd', 200: '#b8dcba', 300: '#86c289', 400: '#52a257',
+                500: '#2d8233', 600: '#1e6725', 700: '#18511e', 800: '#14401a', 900: '#0f3015',
+              },
+              earth: {
+                50: '#fdf8f3', 100: '#f9ede0', 200: '#f2d8bc', 300: '#e8bc8f', 400: '#dc9a5e',
+                500: '#d07d3a', 600: '#b8622a', 700: '#984c22', 800: '#7c3d1e', 900: '#66331a',
+              },
+              sand: {
+                50: '#fdfaf5', 100: '#f8f0e3', 200: '#f0dfc4', 300: '#e6c99d', 400: '#d9ae72',
+                500: '#cc9550', 600: '#b47c3a', 700: '#94622e', 800: '#784f27', 900: '#634122',
+              },
+              slate: {
+                50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8',
+                500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+              },
+            },
+            fontFamily: {
+              heading: ['Playfair Display', 'Georgia', 'serif'],
+              body: ['Inter', 'system-ui', 'sans-serif'],
+              accent: ['Montserrat', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              card: '0 2px 16px rgba(0,0,0,0.08)',
+              'card-hover': '0 8px 32px rgba(0,0,0,0.14)',
+              hero: '0 24px 80px rgba(0,0,0,0.18)',
+            },
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS Core & Data -->
+    <script src="js/data.js" defer></script>
+    <script src="js/shared.js" defer></script>
+    <script src="js/plots.js" defer></script>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Navbar Container -->
+    <div id="navbar"></div>
+
+    <!-- ── LISTINGS DIRECTORY VIEW ── -->
+    <div id="plots-listing-view" class="min-h-screen">
+      <!-- Page Header -->
+      <div class="bg-forest-800 pt-28 pb-12 text-left">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Browse & Buy</p>
+          <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Available Plots</h1>
+          <p class="text-forest-300 max-w-xl">
+            RERA-approved residential plots across Varanasi, Sonbhadra, and Mirzapur. Filter by your requirements.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Search + Controls -->
+        <div class="bg-white rounded-2xl shadow-card p-4 mb-6">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <!-- Search bar -->
+            <div class="flex-1 relative">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input id="search-input" type="text" placeholder="Search plots, location, project..." class="input-field pl-10" />
+            </div>
+            <!-- Sorting & Filter Toggles -->
+            <div class="flex gap-2">
+              <select id="sort-by-select" class="input-field w-auto text-sm">
+                <option value="default">Sort: Default</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="area-asc">Area: Small to Large</option>
+                <option value="area-desc">Area: Large to Small</option>
+              </select>
+              <button id="filter-toggle-btn" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-700 hover:border-forest-400 font-accent font-medium text-sm transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                Filters
+              </button>
+              <!-- Grid/List View Toggles -->
+              <div class="hidden sm:flex items-center gap-1 border border-slate-200 rounded-lg p-1">
+                <button id="view-grid-btn" class="p-1.5 rounded-md bg-forest-100 text-forest-600 transition-colors">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                <button id="view-list-btn" class="p-1.5 rounded-md text-slate-400 hover:text-slate-600 transition-colors">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expanded Filters Panel -->
+          <div id="expanded-filters" class="mt-4 pt-4 border-t border-slate-100 hidden text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div>
+                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">City</label>
+                <select id="city-select" class="input-field text-sm">
+                  <!-- Dynamic Options -->
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Project</label>
+                <select id="project-select" class="input-field text-sm">
+                  <!-- Dynamic Options -->
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Availability</label>
+                <select id="status-select" class="input-field text-sm">
+                  <option value="">All Status</option>
+                  <option value="available">Available</option>
+                  <option value="reserved">Reserved</option>
+                  <option value="sold">Sold</option>
+                </select>
+              </div>
+              <div>
+                <label id="price-range-display" class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">
+                  Price: ₹0L – ₹50L
+                </label>
+                <input id="price-range" type="range" min="0" max="50" value="50" class="w-full" />
+              </div>
+            </div>
+            <div class="flex justify-between items-center mt-4">
+              <button id="clear-filters-btn" class="text-sm text-slate-500 hover:text-red-500 flex items-center gap-1 transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Clear all filters
+              </button>
+              <button onclick="document.getElementById('expanded-filters').classList.add('hidden')" class="text-sm font-accent font-semibold text-forest-600">Done</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Counter & CTA -->
+        <div class="flex items-center justify-between mb-5">
+          <p class="text-slate-600 text-sm">
+            Showing <strong id="plots-result-count" class="text-slate-900">0</strong> plots
+          </p>
+          <button data-toggle="modal" data-title="Request Callback" class="btn-primary text-sm py-2">
+            Get Callback
+          </button>
+        </div>
+
+        <!-- Empty State Container -->
+        <div id="plots-empty-state" class="text-center py-20 hidden">
+          <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-slate-700 mb-2">No plots found</h3>
+          <p class="text-slate-500 mb-4">Try adjusting your search query or filters.</p>
+          <button id="plots-empty-clear-btn" class="btn-primary text-sm">Clear Filters</button>
+        </div>
+
+        <!-- Grid Container -->
+        <div id="plots-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered Dynamically -->
+        </div>
+
+        <!-- List Container -->
+        <div id="plots-list-container" class="space-y-4 hidden">
+          <!-- Rendered Dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PLOT DETAIL VIEW (HIDDEN ON DEFAULT) ── -->
+    <div id="plot-details-view" class="min-h-screen hidden">
+      <!-- Breadcrumb Bar -->
+      <div class="bg-white border-b border-slate-100 pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-left">
+          <div class="flex items-center gap-2 text-sm text-slate-500">
+            <a href="index.html" class="hover:text-forest-600 transition-colors">Home</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <a href="plots.html" class="hover:text-forest-600 transition-colors">Plots</a>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <span id="breadcrumb-plot-name" class="text-slate-800 font-medium truncate">Plot Details</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Back Button -->
+        <div class="mb-4 text-left">
+          <a href="plots.html" class="btn-ghost text-sm inline-flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            Back to Listings
+          </a>
+        </div>
+
+        <div id="plot-details-content" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Rendered Dynamically by plots.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Container -->
+    <div id="footer"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsapp-btn"></div>
+
+    <!-- Lead Modal container -->
+    <div id="lead-modal"></div>
+  </body>
+</html>

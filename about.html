@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Devashri Builders</title>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                50: '#f0f7f0', 100: '#dceedd', 200: '#b8dcba', 300: '#86c289', 400: '#52a257',
+                500: '#2d8233', 600: '#1e6725', 700: '#18511e', 800: '#14401a', 900: '#0f3015',
+              },
+              earth: {
+                50: '#fdf8f3', 100: '#f9ede0', 200: '#f2d8bc', 300: '#e8bc8f', 400: '#dc9a5e',
+                500: '#d07d3a', 600: '#b8622a', 700: '#984c22', 800: '#7c3d1e', 900: '#66331a',
+              },
+              sand: {
+                50: '#fdfaf5', 100: '#f8f0e3', 200: '#f0dfc4', 300: '#e6c99d', 400: '#d9ae72',
+                500: '#cc9550', 600: '#b47c3a', 700: '#94622e', 800: '#784f27', 900: '#634122',
+              },
+              slate: {
+                50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8',
+                500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+              },
+            },
+            fontFamily: {
+              heading: ['Playfair Display', 'Georgia', 'serif'],
+              body: ['Inter', 'system-ui', 'sans-serif'],
+              accent: ['Montserrat', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              card: '0 2px 16px rgba(0,0,0,0.08)',
+              'card-hover': '0 8px 32px rgba(0,0,0,0.14)',
+              hero: '0 24px 80px rgba(0,0,0,0.18)',
+            },
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS Core & Data -->
+    <script src="js/data.js" defer></script>
+    <script src="js/shared.js" defer></script>
+  </head>
+  <body class="bg-white">
+    <!-- Navbar Container -->
+    <div id="navbar"></div>
+
+    <!-- Hero -->
+    <div class="bg-forest-900 pt-28 pb-20 relative overflow-hidden text-left">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.03\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-3xl">
+          <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-3">Our Story</p>
+          <h1 class="font-heading text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+            Built on Trust. <br />
+            <span class="text-earth-400 italic">Rooted in Land.</span>
+          </h1>
+          <p class="text-forest-200 text-lg leading-relaxed max-w-2xl">
+            Devashri Builders started with a simple conviction — that buying a plot of land should be as straightforward and trustworthy as any other honest transaction. Since 2016, we've helped over 1,200 families find, own, and love their land in Eastern Uttar Pradesh.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-left">
+            <p class="section-label mb-2">Who We Are</p>
+            <h2 class="section-title mb-5">Not Just a Plot Company</h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
+              <p>
+                Devashri Builders is an exclusive plots and land company based in Varanasi, operating across Eastern UP. We do not construct buildings. We do not market apartments. We do one thing: help families and investors find, verify, and own clean, legal residential plots.
+              </p>
+              <p>
+                Every layout we develop goes through months of legal due diligence — title search, NA conversion, RERA registration, and government road access — before a single plot is offered for sale. We believe the paperwork is as important as the land itself.
+              </p>
+              <p>
+                Our team of legal experts, land acquisition specialists, and customer relationship managers ensures that from your first enquiry to the day you receive registry papers, you are guided at every step.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-8">
+              <div class="bg-forest-50 rounded-xl p-4">
+                <p class="font-heading text-3xl font-bold text-forest-700">8+</p>
+                <p class="text-slate-500 text-sm">Years in Business</p>
+              </div>
+              <div class="bg-forest-50 rounded-xl p-4">
+                <p class="font-heading text-3xl font-bold text-forest-700">500+</p>
+                <p class="text-slate-500 text-sm">Plots Delivered</p>
+              </div>
+              <div class="bg-forest-50 rounded-xl p-4">
+                <p class="font-heading text-3xl font-bold text-forest-700">1,200+</p>
+                <p class="text-slate-500 text-sm">Happy Families</p>
+              </div>
+              <div class="bg-forest-50 rounded-xl p-4">
+                <p class="font-heading text-3xl font-bold text-forest-700">5</p>
+                <p class="text-slate-500 text-sm">Active Projects</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Land overview" class="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl" />
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-slate-100 flex items-center gap-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-earth-500 flex-shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <div class="text-left">
+                <p class="font-accent font-bold text-slate-900 text-sm">RERA Compliant</p>
+                <p class="text-slate-500 text-xs">All projects registered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <p class="section-label mb-2">Our Principles</p>
+          <h2 class="section-title mb-3">What We Stand For</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Value 1 -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 bg-forest-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-forest-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 mb-2">Integrity First</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">We only sell what we can legally and morally stand behind. No false claims, no hidden costs.</p>
+          </div>
+          <!-- Value 2 -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 bg-forest-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-forest-600"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 mb-2">Customer for Life</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Our relationship doesn't end at registry. We support buyers for years after the purchase.</p>
+          </div>
+          <!-- Value 3 -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 bg-forest-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-forest-600"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 mb-2">Long-term Thinking</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">We choose locations for their 10-year potential, not just immediate profitability.</p>
+          </div>
+          <!-- Value 4 -->
+          <div class="card p-6 text-center">
+            <div class="w-12 h-12 bg-forest-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-forest-600"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 mb-2">Community Building</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Our layouts are designed as communities — not just collections of plots.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <p class="section-label mb-2">Our Journey</p>
+          <h2 class="section-title">8 Years of Growth</h2>
+        </div>
+        <div class="relative">
+          <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-forest-100"></div>
+          <div class="space-y-8">
+            <!-- Milestone 1 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row">
+              <div class="flex-1 md:text-right text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2016</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Founded Devashri Builders</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">Started with one layout in Varanasi with a simple belief — every family deserves land they can trust.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row-reverse">
+              <div class="flex-1 text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2018</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">First 100 Plots Sold</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">Completed Surya Nagar Colony, Mirzapur — 60 plots, all registered on time.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row">
+              <div class="flex-1 md:text-right text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2020</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">RERA Compliance</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">First plot company in the region to proactively register all projects under UP-RERA.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+
+            <!-- Milestone 4 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row-reverse">
+              <div class="flex-1 text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2022</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">500 Families Served</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">Crossed the milestone of 500 families who now own land through Devashri Builders.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+
+            <!-- Milestone 5 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row">
+              <div class="flex-1 md:text-right text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2024</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">3 Active Projects</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">Simultaneously developing Kashi Puram Green City, Vinayak Puram Society, and Bichchhi Layout.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+
+            <!-- Milestone 6 -->
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 md:flex-row-reverse">
+              <div class="flex-1 text-left">
+                <div class="card p-5 inline-block text-left">
+                  <p class="font-accent font-bold text-earth-500 text-sm mb-1">2025</p>
+                  <h3 class="font-heading font-bold text-slate-900 text-lg mb-1">Green Valley Launch</h3>
+                  <p class="text-slate-500 text-sm leading-relaxed">Our largest project yet — 200 plots in a fully gated enclave on Mirzapur Road.</p>
+                </div>
+              </div>
+              <div class="hidden md:flex items-center justify-center w-8 flex-shrink-0 z-10">
+                <div class="w-8 h-8 bg-forest-600 rounded-full flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <p class="section-label mb-2">The People</p>
+          <h2 class="section-title mb-3">Meet Our Team</h2>
+          <p class="section-subtitle mx-auto text-center">Experienced professionals dedicated to making your land purchase seamless.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <!-- Member 1 -->
+          <div class="card overflow-hidden text-center">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Ramesh Kumar Verma" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-slate-900 text-base">Ramesh Kumar Verma</h3>
+              <p class="text-forest-600 text-xs font-accent font-semibold mt-0.5 mb-2">Founder & Director</p>
+              <p class="text-slate-500 text-xs leading-relaxed">20+ years in land development across Eastern UP. Pioneer in RERA-compliant residential layouts.</p>
+            </div>
+          </div>
+          <!-- Member 2 -->
+          <div class="card overflow-hidden text-center">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Priya Singh" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-slate-900 text-base">Priya Singh</h3>
+              <p class="text-forest-600 text-xs font-accent font-semibold mt-0.5 mb-2">Head of Legal & Compliance</p>
+              <p class="text-slate-500 text-xs leading-relaxed">LLB from BHU. Expert in land law, RERA compliance, and title verification across Varanasi & Sonbhadra.</p>
+            </div>
+          </div>
+          <!-- Member 3 -->
+          <div class="card overflow-hidden text-center">
+            <div class="h-48 overflow-hidden">
+              <img src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Amit Tiwari" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-bold text-slate-900 text-base">Amit Tiwari</h3>
+              <p class="text-forest-600 text-xs font-accent font-semibold mt-0.5 mb-2">Sales & Customer Relations</p>
+              <p class="text-slate-500 text-xs leading-relaxed">Your point of contact from first inquiry to final registry. 8 years guiding families through their plot journey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-forest-800 text-center text-white">
+      <div class="max-w-2xl mx-auto px-4">
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">Ready to own your land?</h2>
+        <p class="text-forest-300 mb-6 font-medium">Talk to our team today. No pressure, just honest advice.</p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="plots.html" class="btn-secondary">Browse Plots</a>
+          <a href="contact.html" class="btn-outline border-white text-white hover:bg-white hover:text-forest-800">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsapp-btn"></div>
+
+    <!-- Lead Modal container -->
+    <div id="lead-modal"></div>
+  </body>
+</html>

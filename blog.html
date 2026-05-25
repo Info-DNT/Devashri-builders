@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Investment Blog | Devashri Builders</title>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
+    
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                50: '#f0f7f0', 100: '#dceedd', 200: '#b8dcba', 300: '#86c289', 400: '#52a257',
+                500: '#2d8233', 600: '#1e6725', 700: '#18511e', 800: '#14401a', 900: '#0f3015',
+              },
+              earth: {
+                50: '#fdf8f3', 100: '#f9ede0', 200: '#f2d8bc', 300: '#e8bc8f', 400: '#dc9a5e',
+                500: '#d07d3a', 600: '#b8622a', 700: '#984c22', 800: '#7c3d1e', 900: '#66331a',
+              },
+              sand: {
+                50: '#fdfaf5', 100: '#f8f0e3', 200: '#f0dfc4', 300: '#e6c99d', 400: '#d9ae72',
+                500: '#cc9550', 600: '#b47c3a', 700: '#94622e', 800: '#784f27', 900: '#634122',
+              },
+              slate: {
+                50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 400: '#94a3b8',
+                500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+              },
+            },
+            fontFamily: {
+              heading: ['Playfair Display', 'Georgia', 'serif'],
+              body: ['Inter', 'system-ui', 'sans-serif'],
+              accent: ['Montserrat', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              card: '0 2px 16px rgba(0,0,0,0.08)',
+              'card-hover': '0 8px 32px rgba(0,0,0,0.14)',
+              hero: '0 24px 80px rgba(0,0,0,0.18)',
+            },
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS Core & Data -->
+    <script src="js/data.js" defer></script>
+    <script src="js/shared.js" defer></script>
+    <script src="js/blog.js" defer></script>
+  </head>
+  <body class="bg-slate-50">
+    <!-- Navbar Container -->
+    <div id="navbar"></div>
+
+    <!-- Header -->
+    <div class="bg-forest-800 pt-28 pb-16 text-left">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Knowledge Centre</p>
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Land Investment Blog</h1>
+        <p class="text-forest-300 max-w-xl">Legal guides, buyer tips, market analysis, and investment insights — everything you need before buying a plot.</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Featured Post Container -->
+      <div id="featured-blog-container">
+        <!-- Rendered dynamically by blog.js -->
+      </div>
+
+      <!-- Search + Category Filters -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-8">
+        <!-- Search bar -->
+        <div class="relative flex-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input id="blog-search-input" type="text" placeholder="Search articles..." class="input-field pl-10" />
+        </div>
+        <!-- Categories -->
+        <div class="flex gap-2 overflow-x-auto pb-1" id="blog-category-container">
+          <!-- Rendered dynamically by blog.js -->
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="blog-empty-state" class="text-center py-16 hidden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-slate-300 mx-auto mb-3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <p class="text-slate-500 text-sm">No articles found for "<span id="blog-search-query-display" class="font-semibold"></span>"</p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-grid">
+        <!-- Rendered dynamically by blog.js -->
+      </div>
+
+      <!-- Newsletter subscription -->
+      <div class="mt-14 bg-forest-700 rounded-2xl p-8 text-center text-white">
+        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Free Resources</p>
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-2">Get Our Free Plot Buyer's Checklist</h2>
+        <p class="text-forest-200 max-w-md mx-auto mb-6 text-sm leading-relaxed">
+          A practical PDF guide on 20 things to verify before buying any plot in UP. Used by 500+ buyers.
+        </p>
+        <form class="flex gap-2 max-w-sm mx-auto" onsubmit="event.preventDefault(); alert('Checklist sent to your email!'); this.reset();">
+          <input type="email" placeholder="Your email" required class="flex-1 px-4 py-3 rounded-lg bg-forest-800/60 border border-forest-600 text-white placeholder-forest-400 text-sm focus:outline-none focus:ring-2 focus:ring-white/30" />
+          <button type="submit" class="btn-secondary whitespace-nowrap text-sm py-3">Get Guide</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <div id="whatsapp-btn"></div>
+
+    <!-- Lead Modal container -->
+    <div id="lead-modal"></div>
+  </body>
+</html>
