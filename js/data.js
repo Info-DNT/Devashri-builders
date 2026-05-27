@@ -24,7 +24,7 @@ window.plotsData = [
       { label: 'Govt School', distance: '1.2 km' },
     ],
     paymentPlans: [
-      { name: 'Easy Installment', description: '50% booking amount, balance in 24 months at ₹599/sqft' },
+      { name: 'Easy Installment', description: '50% booking amount, balance in 24 months' },
       { name: 'Full Payment', description: 'One-time payment with 3% additional discount' },
       { name: 'Bank Loan', description: 'Assistance with SBI & HDFC home loans available' },
     ],
@@ -90,7 +90,7 @@ window.plotsData = [
       { label: 'Main Road', distance: '50 m' },
     ],
     paymentPlans: [
-      { name: 'Installment Plan', description: '50% booking, 24 months EMI at ₹699/sqft' },
+      { name: 'Installment Plan', description: '50% booking, 24 months EMI' },
       { name: 'Full Payment', description: 'Upfront payment with registry assistance' },
     ],
     images: [

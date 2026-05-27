@@ -59,13 +59,9 @@ function renderProjectsList() {
               <p class="text-xs text-slate-400 mb-0.5">Available</p>
               <p class="font-accent font-bold ${availableColorClass}">${availableText}</p>
             </div>
-            <div class="bg-slate-50 rounded-xl p-3">
+            <div class="bg-slate-50 rounded-xl p-3 col-span-2">
               <p class="text-xs text-slate-400 mb-0.5">Plot Sizes</p>
               <p class="font-accent font-semibold text-slate-800 text-xs">${proj.plotSizes}</p>
-            </div>
-            <div class="bg-slate-50 rounded-xl p-3">
-              <p class="text-xs text-slate-400 mb-0.5">Price</p>
-              <p class="font-accent font-bold text-forest-700 text-xs">${proj.priceRange}</p>
             </div>
           </div>
 

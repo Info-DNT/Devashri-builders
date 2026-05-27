@@ -116,10 +116,6 @@ function renderPlotDetails(plot) {
               <span class="text-sm">${plot.location}</span>
             </div>
           </div>
-          <div class="text-left sm:text-right flex-shrink-0">
-            <p class="font-heading text-3xl font-bold text-forest-700">₹${(plot.totalPrice / 100000).toFixed(2)}L</p>
-            <p class="text-slate-500 text-sm">₹${plot.pricePerSqft}/sqft</p>
-          </div>
         </div>
 
         <!-- Quick Stats Grid -->
@@ -281,25 +277,7 @@ function renderPlotDetails(plot) {
           </div>
         </div>
 
-        <!-- Price Summary Widget -->
-        <div class="card p-5">
-          <h3 class="font-accent font-semibold text-slate-700 text-sm mb-3">Price Summary</h3>
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-slate-500">Plot Area</span>
-              <span class="font-medium text-slate-800">${plot.area} sqft</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-slate-500">Rate per sqft</span>
-              <span class="font-medium text-slate-800">₹${plot.pricePerSqft}</span>
-            </div>
-            <div class="border-t border-slate-100 pt-2 mt-2 flex justify-between">
-              <span class="font-accent font-semibold text-slate-800">Total Price</span>
-              <span class="font-heading font-bold text-forest-700 text-lg">₹${(plot.totalPrice / 100000).toFixed(2)}L</span>
-            </div>
-          </div>
-          <p class="text-xs text-slate-400 mt-3">* Registration & stamp duty extra. EMI plans available.</p>
-        </div>
+
 
         <!-- Brochure Download -->
         <button class="w-full flex items-center justify-center gap-2 border-2 border-dashed border-slate-300 hover:border-forest-400 text-slate-600 hover:text-forest-700 font-accent font-medium text-sm py-3.5 rounded-xl transition-all" onclick="alert('Brochure download started!')">
@@ -418,7 +396,7 @@ let filters = {
   city: '',
   project: '',
   status: '',
-  maxPrice: 50,
+  maxPrice: Infinity,
 };
 
 function showPlotsListingView(initialSearchQuery) {
@@ -529,7 +507,7 @@ function setupListingsEvents() {
   // Clear Filters
   if (clearFiltersBtn) {
     clearFiltersBtn.addEventListener('click', () => {
-      filters = { search: '', city: '', project: '', status: '', maxPrice: 50 };
+      filters = { search: '', city: '', project: '', status: '', maxPrice: Infinity };
       
       if (searchInput) searchInput.value = '';
       if (citySelect) citySelect.value = '';
@@ -679,14 +657,6 @@ function renderPlotListCardHtml(plot) {
             <span class="text-slate-400 text-xs block">Plot Size</span>
             <span class="font-accent font-semibold text-slate-800">${plot.dimensions} ft</span>
           </div>
-          <div>
-            <span class="text-slate-400 text-xs block">Rate</span>
-            <span class="font-accent font-semibold text-slate-800">₹${plot.pricePerSqft}/sqft</span>
-          </div>
-          <div>
-            <span class="text-slate-400 text-xs block">Total Price</span>
-            <span class="font-accent font-bold text-forest-700 text-base">₹${(plot.totalPrice / 100000).toFixed(1)}L</span>
-          </div>
           <div class="ml-auto flex gap-2">
             <a href="plots.html?id=${plot.id}" class="btn-outline text-sm py-2">Details</a>
           </div>
@@ -722,10 +692,6 @@ function renderPlotCardHtml(plot) {
           <span class="${statusClass}">${statusLabel}</span>
           ${featuredBadge}
         </div>
-        <div class="absolute bottom-3 left-3">
-          <span class="text-white font-heading font-bold text-lg drop-shadow">₹${(plot.totalPrice / 100000).toFixed(1)}L</span>
-          <span class="text-white/80 text-xs ml-1">total</span>
-        </div>
       </div>
 
       <!-- Content -->
@@ -737,13 +703,9 @@ function renderPlotCardHtml(plot) {
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-4">
-          <div class="bg-slate-50 rounded-lg p-2.5">
+          <div class="bg-slate-50 rounded-lg p-2.5 col-span-2">
             <p class="text-xs text-slate-400 mb-0.5">Plot Size</p>
             <p class="font-accent font-semibold text-sm text-slate-800">${plot.dimensions} ft</p>
-          </div>
-          <div class="bg-slate-50 rounded-lg p-2.5">
-            <p class="text-xs text-slate-400 mb-0.5">Rate</p>
-            <p class="font-accent font-semibold text-sm text-slate-800">₹${plot.pricePerSqft}/sqft</p>
           </div>
         </div>
 

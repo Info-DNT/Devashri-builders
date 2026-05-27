@@ -23,7 +23,6 @@ function renderNavbar() {
     { label: 'Plots', href: 'plots.html', key: 'plots.html' },
     { label: 'Projects', href: 'projects.html', key: 'projects.html' },
     { label: 'About', href: 'about.html', key: 'about.html' },
-    { label: 'Blog', href: 'blog.html', key: 'blog.html' },
     { label: 'Contact', href: 'contact.html', key: 'contact.html' },
   ];
 
@@ -244,7 +243,6 @@ function renderFooter() {
                 <li><a href="plots.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">View All Plots</a></li>
                 <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Our Projects</a></li>
                 <li><a href="about.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">About Devashri Builders</a></li>
-                <li><a href="blog.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Blog & Resources</a></li>
                 <li><a href="contact.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Contact Us</a></li>
                 <li><a href="#" data-toggle="modal" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Book Site Visit</a></li>
               </ul>

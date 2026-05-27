@@ -33,10 +33,6 @@ function renderPlotCardHtml(plot) {
           <span class="${statusClass}">${statusLabel}</span>
           ${featuredBadge}
         </div>
-        <div class="absolute bottom-3 left-3">
-          <span class="text-white font-heading font-bold text-lg drop-shadow">₹${(plot.totalPrice / 100000).toFixed(1)}L</span>
-          <span class="text-white/80 text-xs ml-1">total</span>
-        </div>
       </div>
 
       <!-- Content -->
@@ -48,13 +44,9 @@ function renderPlotCardHtml(plot) {
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-4">
-          <div class="bg-slate-50 rounded-lg p-2.5">
+          <div class="bg-slate-50 rounded-lg p-2.5 col-span-2">
             <p class="text-xs text-slate-400 mb-0.5">Plot Size</p>
             <p class="font-accent font-semibold text-sm text-slate-800">${plot.dimensions} ft</p>
-          </div>
-          <div class="bg-slate-50 rounded-lg p-2.5">
-            <p class="text-xs text-slate-400 mb-0.5">Rate</p>
-            <p class="font-accent font-semibold text-sm text-slate-800">₹${plot.pricePerSqft}/sqft</p>
           </div>
         </div>
 
@@ -115,7 +107,6 @@ function renderOngoingProjectsTeaser() {
         <div class="p-4 text-left">
           <div class="flex items-center justify-between mb-3 text-sm">
             <span class="text-slate-500">${proj.availablePlots} plots available</span>
-            <span class="font-accent font-semibold text-forest-700">${proj.priceRange}</span>
           </div>
           <div class="flex flex-wrap gap-1 mb-4">
             ${highlightsHtml}
