@@ -295,7 +295,7 @@ function renderFooter() {
             <span>·</span>
             <a href="about.html" class="hover:text-slate-400 transition-colors">Terms of Use</a>
             <span>·</span>
-            <span>RERA Registrations Available on Request</span>
+            <span>Legal Documents Available on Request</span>
           </div>
         </div>
       </div>

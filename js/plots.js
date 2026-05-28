@@ -172,11 +172,7 @@ function renderPlotDetails(plot) {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-forest-600 flex-shrink-0 mt-0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           <div>
             <h2 class="font-heading font-bold text-slate-900 text-lg mb-1">Legal Status</h2>
-            <p class="text-sm text-slate-600 mb-3">RERA Registered Layout with clear title and government approvals.</p>
-            <div class="bg-forest-50 rounded-lg px-4 py-3 inline-block">
-              <p class="text-xs text-forest-600 font-accent font-medium">RERA Registration</p>
-              <p class="text-forest-800 font-accent font-bold text-sm">${plot.rera}</p>
-            </div>
+            <p class="text-sm text-slate-600">Fully verified residential layout with clear legal title, NA conversion, and government road access approvals.</p>
           </div>
         </div>
       </div>
