@@ -1,40 +1,43 @@
 // ── Devashri Builders — HomePage Logic ──
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderFeaturedPlots();
+  renderFeaturedProjects();
   renderOngoingProjectsTeaser();
   renderLatestBlogsTeaser();
   setupHeroSearchForm();
 });
 
-// Helper: Generate Plot Card HTML
-function renderPlotCardHtml(plot) {
+// Helper: Generate Project Card HTML
+function renderProjectCardHtml(proj) {
   const isHi = window.currentLang === 'hi';
-  const name = isHi ? plot.name_hi || plot.name : plot.name;
-  const location = isHi ? plot.location_hi || plot.location : plot.location;
+  const name = isHi ? proj.name_hi || proj.name : proj.name;
+  const location = isHi ? proj.location_hi || proj.location : proj.location;
   
   const statusLabel = {
-    available: isHi ? 'उपलब्ध' : 'Available',
-    sold: isHi ? 'बिक गया' : 'Sold Out',
-    reserved: isHi ? 'आरक्षित' : 'Reserved',
-  }[plot.status];
+    ongoing: isHi ? 'चल रही है' : 'Ongoing',
+    upcoming: isHi ? 'नया लॉन्च' : 'New Launch',
+    completed: isHi ? 'पूर्ण' : 'Completed',
+  }[proj.status];
 
   const statusClass = {
-    available: 'badge-available',
-    sold: 'badge-sold',
-    reserved: 'badge-reserved',
-  }[plot.status];
+    ongoing: 'badge-available',
+    upcoming: 'bg-earth-500 text-white text-[11px] px-2.5 py-1 rounded-full font-accent font-semibold',
+    completed: 'badge-sold',
+  }[proj.status] || 'badge-available';
 
-  const featuredBadge = plot.featured ? `<span class="badge-featured">${isHi ? 'विशेष' : 'Featured'}</span>` : '';
+  const featuredBadge = proj.featured ? `<span class="badge-featured">${isHi ? 'विशेष' : 'Featured'}</span>` : '';
+
+  const plotSizesText = isHi ? proj.plotSizes_hi || proj.plotSizes : proj.plotSizes;
+  const areaText = isHi ? proj.area_hi || proj.area : proj.area;
 
   return `
-    <div class="plot-card card overflow-hidden group">
+    <div class="project-card card overflow-hidden group">
       <!-- Image -->
       <div class="relative h-48 overflow-hidden bg-slate-100">
-        <img src="${plot.images[0]}" alt="${name}" class="plot-card-img w-full h-full object-cover transition-transform duration-500" />
+        <img src="${proj.image || proj.images[0]}" alt="${name}" class="project-card-img w-full h-full object-cover transition-transform duration-500" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-        <div class="absolute top-3 left-3 flex gap-2 flex-wrap">
-          <span class="${statusClass}">${statusLabel}</span>
+        <div class="absolute top-3 left-3 flex gap-2 flex-wrap items-center">
+          <span class="${proj.status === 'upcoming' ? statusClass : 'text-xs font-accent font-semibold px-2.5 py-1 rounded-full ' + statusClass}">${statusLabel}</span>
           ${featuredBadge}
         </div>
       </div>
@@ -48,14 +51,18 @@ function renderPlotCardHtml(plot) {
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-4">
-          <div class="bg-slate-50 rounded-lg p-2.5 col-span-2">
-            <p class="text-xs text-slate-400 mb-0.5">${isHi ? 'प्लॉट का आकार' : 'Plot Size'}</p>
-            <p class="font-accent font-semibold text-sm text-slate-800">${plot.dimensions} ${isHi ? 'फिट' : 'ft'}</p>
+          <div class="bg-slate-50 rounded-lg p-2 px-2.5">
+            <p class="text-[10px] text-slate-400 mb-0.5 uppercase tracking-wider">${isHi ? 'प्लॉट के आकार' : 'Plot Sizes'}</p>
+            <p class="font-accent font-semibold text-xs text-slate-800 truncate">${plotSizesText}</p>
+          </div>
+          <div class="bg-slate-50 rounded-lg p-2 px-2.5">
+            <p class="text-[10px] text-slate-400 mb-0.5 uppercase tracking-wider">${isHi ? 'कुल क्षेत्रफल' : 'Total Area'}</p>
+            <p class="font-accent font-semibold text-xs text-slate-800 truncate">${areaText}</p>
           </div>
         </div>
 
         <div class="flex items-center justify-between">
-          <a href="plots.html?id=${plot.id}" class="btn-ghost text-sm group/link">
+          <a href="projects.html?id=${proj.id}" class="btn-ghost text-sm group/link">
             ${isHi ? 'विवरण देखें' : 'View Details'}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 transition-transform group-hover/link:translate-x-1"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
@@ -68,13 +75,13 @@ function renderPlotCardHtml(plot) {
   `;
 }
 
-// 1. Render Featured Plots
-function renderFeaturedPlots() {
-  const container = document.getElementById('featured-plots-grid');
-  if (!container || !window.plotsData) return;
+// 1. Render Featured Projects
+function renderFeaturedProjects() {
+  const container = document.getElementById('featured-projects-grid');
+  if (!container || !window.projectsData) return;
 
-  const featured = window.plotsData.filter(plot => plot.featured);
-  container.innerHTML = featured.map(plot => renderPlotCardHtml(plot)).join('');
+  const featured = window.projectsData.filter(proj => proj.featured);
+  container.innerHTML = featured.map(proj => renderProjectCardHtml(proj)).join('');
 }
 
 // 2. Render Ongoing Projects
@@ -181,9 +188,9 @@ function setupHeroSearchForm() {
     e.preventDefault();
     const query = input.value.trim();
     if (query) {
-      window.location.href = `plots.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `projects.html?q=${encodeURIComponent(query)}`;
     } else {
-      window.location.href = `plots.html`;
+      window.location.href = `projects.html`;
     }
   });
 }

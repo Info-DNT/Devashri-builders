@@ -60,7 +60,7 @@ function renderNavbar() {
   // Navigation Links configuration
   const navLinks = [
     { label: window.getTranslation('nav_home'), href: 'index.html', key: 'index.html' },
-    { label: window.getTranslation('nav_plots'), href: 'plots.html', key: 'plots.html' },
+    { label: window.getTranslation('nav_projects'), href: 'projects.html', key: 'projects.html' },
     { label: window.getTranslation('nav_about'), href: 'about.html', key: 'about.html' },
     { label: window.getTranslation('nav_contact'), href: 'contact.html', key: 'contact.html' },
   ];
@@ -142,8 +142,8 @@ function renderNavbar() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>77529 57897</span>
               </a>
-              <a href="plots.html" class="hidden md:inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-700 text-white font-accent font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow">
-                ${window.getTranslation('nav_view_plots')}
+              <a href="projects.html" class="hidden md:inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-700 text-white font-accent font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow">
+                ${window.getTranslation('nav_view_projects')}
               </a>
               <button id="mobile-nav-toggle" class="md:hidden p-2 rounded-md transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'}" aria-label="Toggle menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 nav-menu-icon"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -254,7 +254,7 @@ function renderFooter() {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <!-- Brand -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-1">
               <a href="index.html" class="flex items-center gap-3 mb-4">
                 <svg viewBox="0 0 100 100" class="w-11 h-11 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <polygon points="15,20 85,20 50,45" fill="url(#logo-top)" />
@@ -286,10 +286,21 @@ function renderFooter() {
             <div class="lg:col-span-1">
               <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">${window.getTranslation('footer_quick_links')}</h4>
               <ul class="space-y-2.5">
-                <li><a href="plots.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_plots')}</a></li>
+                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_projects')}</a></li>
                 <li><a href="about.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_about')}</a></li>
                 <li><a href="contact.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_contact')}</a></li>
                 <li><a href="#" data-toggle="modal" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('hero_cta_visit')}</a></li>
+              </ul>
+            </div>
+
+            <!-- Our Projects -->
+            <div>
+              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">${window.getTranslation('footer_our_projects')}</h4>
+              <ul class="space-y-2.5">
+                <li><a href="projects.html?id=kashi-puram" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'काशी पुरम ग्रीन सिटी' : 'Kashi Puram Green City'}</a></li>
+                <li><a href="projects.html?id=vinayak-puram" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'विनायक पुरम सोसाइटी' : 'Vinayak Puram Society'}</a></li>
+                <li><a href="projects.html?id=bichchhi-layout" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'बिछी आवासीय लेआउट' : 'Bichchhi Residential Layout'}</a></li>
+                <li><a href="projects.html?id=green-valley" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'ग्रीन वैली एन्क्लेव' : 'Green Valley Enclave'}</a></li>
               </ul>
             </div>
 

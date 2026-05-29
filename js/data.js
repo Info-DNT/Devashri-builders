@@ -297,6 +297,7 @@ window.plotsData = [
 window.projectsData = [
   {
     id: 'kashi-puram',
+    featured: true,
     phase: 1,
     name: 'Kashi Puram Green City',
     name_hi: 'काशी पुरम ग्रीन सिटी',
@@ -321,6 +322,27 @@ window.projectsData = [
     image: 'https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'A thoughtfully planned residential township on Chopan-Sindhuriya Marg offering affordable premium plots with all amenities. Close to Varanasi-Shaktinagar highway and Chopan Hospital.',
     description_hi: 'चोपन-सिंदुरिया मार्ग पर सोच-समझकर बनाई गई आवासीय टाउनशिप जो सभी सुविधाओं के साथ किफायती प्रीमियम प्लॉट प्रदान करती है। वाराणसी-शक्तिनगर राजमार्ग और चोपन अस्पताल के करीब।',
+    rera: 'Applied / Verification Underway',
+    rera_hi: 'आवेदन किया गया / सत्यापन जारी',
+    facing: 'East / West',
+    facing_hi: 'पूर्व / पश्चिम',
+    images: [
+      'https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ],
+    amenities: ['25 Ft Internal Roads', 'Sewage System', '24/7 Water Supply', 'Street Lights', 'Gated Entrance'],
+    amenities_hi: ['25 फीट आंतरिक सड़कें', 'सीवेज प्रणाली', '24/7 जलापूर्ति', 'स्ट्रीट लाइट्स', 'गेटेड प्रवेश द्वार'],
+    nearby: [
+      { label: 'Chopan Hospital', label_hi: 'चोपन अस्पताल', distance: '500 m' },
+      { label: 'Varanasi-Shaktinagar Hwy', label_hi: 'वाराणसी-शक्तिनगर हाईवे', distance: '800 m' },
+      { label: 'Obra Marg', label_hi: 'ओबरा मार्ग', distance: '100 m' },
+    ],
+    paymentPlans: [
+      { name: 'Installment Plan', name_hi: 'किस्त योजना', description: '50% booking amount, balance in 24 EMIs', description_hi: '50% बुकिंग राशि, शेष 24 ईएमआई में' },
+      { name: 'One-time Payment', name_hi: 'एकमुश्त भुगतान', description: 'Immediate registry with 3% additional discount', description_hi: '3% अतिरिक्त छूट के साथ एकमुश्त भुगतान' },
+    ],
+    mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14512.44145946894!2d83.0234562!3d24.5123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398ef32470000001%3A0x6e2c34dcd1234567!2sChopan%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin'
   },
   {
     id: 'vinayak-puram',
@@ -348,6 +370,25 @@ window.projectsData = [
     image: 'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'Government road-facing layout in the heart of Robertsganj. All plots have direct road access, clear titles, and flexible EMI options. Perfect for families and investors alike.',
     description_hi: 'रॉबर्ट्सगंज के मध्य में सरकारी सड़क के सामने का लेआउट। सभी भूखंडों में सीधी सड़क पहुंच, स्पष्ट विलेख और लचीले ईएमआई विकल्प हैं। परिवारों और निवेशकों दोनों के लिए बिल्कुल सही।',
+    rera: 'Clear NA Title Registry',
+    rera_hi: 'स्पष्ट गैर-कृषि विलेख और रजिस्ट्री',
+    facing: 'North / South',
+    facing_hi: 'उत्तर / दक्षिण',
+    images: [
+      'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ],
+    amenities: ['20 Ft Wide Road', 'Street Lights', 'Govt Road Access', 'Clear Boundaries'],
+    amenities_hi: ['20 फीट चौड़ी सड़क', 'स्ट्रीट लाइट्स', 'सरकारी सड़क पहुंच', 'स्पष्ट सीमाएं'],
+    nearby: [
+      { label: 'Sant Kanaram School', label_hi: 'संत कानाराम स्कूल', distance: '2 km' },
+      { label: 'Aayush Hospital', label_hi: 'आयुष अस्पताल', distance: '1.5 km' },
+    ],
+    paymentPlans: [
+      { name: 'Installment Plan', name_hi: 'किस्त योजना', description: '50% booking, balance in 24 months EMI', description_hi: '50% बुकिंग, शेष 24 महीने ईएमआई में' },
+      { name: 'Full Payment', name_hi: 'पूर्ण भुगतान', description: 'Immediate registry with documentation support', description_hi: 'दस्तावेजीकरण सहायता के साथ तत्काल रजिस्ट्री' }
+    ],
+    mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.39123456789!2d83.0654321!3d24.6876543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398edd123456789f%3A0x123456789abcdef0!2sRobertsganj%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin'
   },
   {
     id: 'bichchhi-layout',
@@ -375,9 +416,28 @@ window.projectsData = [
     image: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'Premium plots directly on the Varanasi-Shaktinagar Highway at Bichchhi. Ideal for both residential and commercial investment with guaranteed high appreciation.',
     description_hi: 'बिछी में सीधे वाराणसी-शक्तिनगर हाईवे पर प्रीमियम प्लॉट। आवासीय और वाणिज्यिक दोनों निवेशों के लिए आदर्श, उच्च मूल्य वृद्धि की गारंटी के साथ।',
+    rera: 'Registry Ready layout',
+    rera_hi: 'तत्काल रजिस्ट्री योग्य लेआउट',
+    facing: 'East / West Corner',
+    facing_hi: 'पूर्व / पश्चिम कोना',
+    images: [
+      'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ],
+    amenities: ['20 Ft Wide Internal Road', 'Govt Road Access', 'Corner Plot Layouts', 'Commercial Potential'],
+    amenities_hi: ['20 फीट चौड़ी आंतरिक सड़क', 'सरकारी सड़क पहुंच', 'कोने के प्लॉट लेआउट', 'वाणिज्यिक क्षमता'],
+    nearby: [
+      { label: 'Varanasi-Shaktinagar Highway', label_hi: 'वाराणसी-शक्तिनगर हाईवे', distance: 'Direct Access' },
+      { label: 'Bichchhi Market', label_hi: 'बिछी बाजार', distance: '200 m' },
+    ],
+    paymentPlans: [
+      { name: 'Direct Registration', name_hi: 'तत्काल रजिस्ट्री', description: 'Registry within 30 days of booking', description_hi: 'बुकिंग के 30 दिनों के भीतर रजिस्ट्री' }
+    ],
+    mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.123456789012!2d83.0123456!3d24.6123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398edf0000000001%3A0xabcdef1234567890!2sBichhi%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin'
   },
   {
     id: 'green-valley',
+    featured: true,
     phase: 2,
     name: 'Green Valley Enclave',
     name_hi: 'ग्रीन वैली एन्क्लेव',
@@ -402,6 +462,26 @@ window.projectsData = [
     image: 'https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'Our flagship upcoming project — a fully gated residential enclave on Mirzapur Road with club house, landscaped parks, and premium internal infrastructure. Pre-launch bookings open.',
     description_hi: 'हमारी आगामी प्रमुख परियोजना — क्लब हाउस, सुंदर उद्यानों और प्रीमियम आंतरिक बुनियादी ढांचे के साथ मिर्जापुर रोड पर एक पूर्णतः गेटेड आवासीय एन्क्लेव। प्री-लॉन्च बुकिंग शुरू।',
+    rera: 'RERA Registration Applied',
+    rera_hi: 'रेरा (RERA) पंजीकरण हेतु अप्लाइड',
+    facing: 'East / West / North / South',
+    facing_hi: 'पूर्व / पश्चिम / उत्तर / दक्षिण',
+    images: [
+      'https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ],
+    amenities: ['Gated Community', 'Club House & Gym', 'Water Supply & Filtration', 'Wide Asphalt Roads', 'CCTV & Security Guard'],
+    amenities_hi: ['गेटेड कम्युनिटी', 'क्लब हाउस और जिम', 'जलापूर्ति और निस्पंदन', 'चौड़ी डामर सड़कें', 'सीसीटीवी और सुरक्षा गार्ड'],
+    nearby: [
+      { label: 'Mirzapur Railway Station', label_hi: 'मिर्जापुर रेलवे स्टेशन', distance: '3.5 km' },
+      { label: 'District Hospital', label_hi: 'जिला अस्पताल', distance: '2.0 km' },
+      { label: 'Mirzapur Hwy Bypass', label_hi: 'मिर्जापुर हाईवे बाईपास', distance: '500 m' },
+    ],
+    paymentPlans: [
+      { name: 'Pre-launch Installment', name_hi: 'प्री-लॉन्च किस्त योजना', description: '40% booking amount, balance in 18 months', description_hi: '40% बुकिंग राशि, शेष 18 महीनों में' },
+      { name: 'Cash Discount Plan', name_hi: 'नकद छूट योजना', description: 'Full upfront payment with 4% flat discount', description_hi: '4% फ्लैट छूट के साथ एकमुश्त भुगतान' }
+    ],
+    mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14488.223123456789!2d82.5654321!3d25.1432109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fc80000000001%3A0xabcdef0123456789!2sMirzapur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin'
   },
   {
     id: 'surya-nagar',
@@ -429,6 +509,21 @@ window.projectsData = [
     image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'Successfully completed residential layout at Chunar Road, Mirzapur. All 60 plots sold, registered, and handed over. A testament to our commitment to on-time delivery.',
     description_hi: 'चुनार रोड, मिर्जापुर में सफलतापूर्वक पूर्ण हुआ आवासीय लेआउट। सभी 60 भूखंड बिक गए, पंजीकृत हुए और सौंपे गए। समय पर वितरण के प्रति हमारी प्रतिबद्धता का प्रमाण।',
+    rera: '100% Registered & Handed Over',
+    rera_hi: '100% पंजीकृत और हस्तगत',
+    facing: 'East / North',
+    facing_hi: 'पूर्व / उत्तर',
+    images: [
+      'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ],
+    amenities: ['Fully Occupied Community', 'All Registries Done', 'Internal Street Lights', 'Borewell Water'],
+    amenities_hi: ['पूर्णतः आबाद समुदाय', 'सभी रजिस्ट्रियां पूर्ण', 'आंतरिक स्ट्रीट लाइट्स', 'बोरवेल पानी'],
+    nearby: [
+      { label: 'Chunar Bypass Highway', label_hi: 'चुनार बाईपास हाईवे', distance: '1.2 km' },
+      { label: 'Surya Mandir', label_hi: 'सूर्य मंदिर', distance: '300 m' }
+    ],
+    paymentPlans: [],
+    mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14490.123456789012!2d82.5987654!3d25.1321098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fc7f000000001%3A0xabcdef9876543210!2sChunar%20Road%2C%20Mirzapur!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin'
   },
 ];
 
