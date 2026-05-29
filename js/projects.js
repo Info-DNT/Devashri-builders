@@ -66,7 +66,7 @@ function initListingView(searchVal) {
       if (window.location.search.includes('q=')) {
         history.pushState(null, '', 'projects.html');
       }
-      renderProjectsList();
+      renderProjectsGrid();
     };
 
     phase2Btn.onclick = () => {
@@ -76,12 +76,12 @@ function initListingView(searchVal) {
       if (window.location.search.includes('q=')) {
         history.pushState(null, '', 'projects.html');
       }
-      renderProjectsList();
+      renderProjectsGrid();
     };
   }
 
   renderUspBanner();
-  renderProjectsList(searchVal);
+  renderProjectsGrid(searchVal);
 }
 
 function updatePhaseButtonsUI() {
@@ -126,7 +126,7 @@ function renderUspBanner() {
   `;
 }
 
-function renderProjectsList(searchVal) {
+function renderProjectsGrid(searchVal) {
   const container = document.getElementById('projects-grid');
   if (!container || !window.projectsData) return;
 
@@ -532,6 +532,6 @@ window.renderProjectsList = function() {
     const params = new URLSearchParams(window.location.search);
     const searchVal = params.get('q');
     updatePhaseButtonsUI();
-    renderProjectsList(searchVal);
+    renderProjectsGrid(searchVal);
   }
 };
