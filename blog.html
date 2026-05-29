@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Land Investment Blog | Devashri Builders</title>
+    <title data-i18n="title_blog">Land Investment Blog | Devashri Builders</title>
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
@@ -53,6 +53,7 @@
 
     <!-- JS Core & Data -->
     <script src="js/data.js" defer></script>
+    <script src="js/translations.js" defer></script>
     <script src="js/shared.js" defer></script>
     <script src="js/blog.js" defer></script>
   </head>
@@ -63,9 +64,9 @@
     <!-- Header -->
     <div class="bg-forest-800 pt-28 pb-16 text-left">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Knowledge Centre</p>
-        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Land Investment Blog</h1>
-        <p class="text-forest-300 max-w-xl">Legal guides, buyer tips, market analysis, and investment insights — everything you need before buying a plot.</p>
+        <p data-i18n="blog_header_label" class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Knowledge Centre</p>
+        <h1 data-i18n="blog_header_title" class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Land Investment Blog</h1>
+        <p data-i18n="blog_header_desc" class="text-forest-300 max-w-xl">Legal guides, buyer tips, market analysis, and investment insights — everything you need before buying a plot.</p>
       </div>
     </div>
 
@@ -81,7 +82,7 @@
         <!-- Search bar -->
         <div class="relative flex-1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input id="blog-search-input" type="text" placeholder="Search articles..." class="input-field pl-10" />
+          <input id="blog-search-input" type="text" data-i18n="blog_search_placeholder" placeholder="Search articles..." class="input-field pl-10" />
         </div>
         <!-- Categories -->
         <div class="flex gap-2 overflow-x-auto pb-1" id="blog-category-container">
@@ -92,7 +93,9 @@
       <!-- Empty State -->
       <div id="blog-empty-state" class="text-center py-16 hidden">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-slate-300 mx-auto mb-3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <p class="text-slate-500 text-sm">No articles found for "<span id="blog-search-query-display" class="font-semibold"></span>"</p>
+        <p class="text-slate-500 text-sm">
+          <span data-i18n="blog_empty_prefix">No articles found for</span> "<span id="blog-search-query-display" class="font-semibold"></span>"
+        </p>
       </div>
 
       <!-- Grid -->
@@ -102,14 +105,14 @@
 
       <!-- Newsletter subscription -->
       <div class="mt-14 bg-forest-700 rounded-2xl p-8 text-center text-white">
-        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Free Resources</p>
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-2">Get Our Free Plot Buyer's Checklist</h2>
-        <p class="text-forest-200 max-w-md mx-auto mb-6 text-sm leading-relaxed">
+        <p data-i18n="blog_sub_label" class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Free Resources</p>
+        <h2 data-i18n="blog_sub_title" class="font-heading text-2xl md:text-3xl font-bold text-white mb-2">Get Our Free Plot Buyer's Checklist</h2>
+        <p data-i18n="blog_sub_desc" class="text-forest-200 max-w-md mx-auto mb-6 text-sm leading-relaxed">
           A practical PDF guide on 20 things to verify before buying any plot in UP. Used by 500+ buyers.
         </p>
-        <form class="flex gap-2 max-w-sm mx-auto" onsubmit="event.preventDefault(); alert('Checklist sent to your email!'); this.reset();">
-          <input type="email" placeholder="Your email" required class="flex-1 px-4 py-3 rounded-lg bg-forest-800/60 border border-forest-600 text-white placeholder-forest-400 text-sm focus:outline-none focus:ring-2 focus:ring-white/30" />
-          <button type="submit" class="btn-secondary whitespace-nowrap text-sm py-3">Get Guide</button>
+        <form class="flex gap-2 max-w-sm mx-auto" onsubmit="event.preventDefault(); alert(window.currentLang === 'hi' ? 'चेकलिस्ट आपके ईमेल पर भेज दी गई है!' : 'Checklist sent to your email!'); this.reset();">
+          <input type="email" data-i18n="blog_sub_placeholder_email" placeholder="Your email" required class="flex-1 px-4 py-3 rounded-lg bg-forest-800/60 border border-forest-600 text-white placeholder-forest-400 text-sm focus:outline-none focus:ring-2 focus:ring-white/30" />
+          <button type="submit" data-i18n="blog_sub_btn" class="btn-secondary whitespace-nowrap text-sm py-3">Get Guide</button>
         </form>
       </div>
     </main>

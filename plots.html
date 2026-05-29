@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Available Plots | Devashri Builders</title>
+    <title data-i18n="title_plots">Available Plots | Devashri Builders</title>
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
@@ -53,6 +53,7 @@
 
     <!-- JS Core & Data -->
     <script src="js/data.js" defer></script>
+    <script src="js/translations.js" defer></script>
     <script src="js/shared.js" defer></script>
     <script src="js/plots.js" defer></script>
   </head>
@@ -65,10 +66,10 @@
       <!-- Page Header -->
       <div class="bg-forest-800 pt-28 pb-12 text-left">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Browse & Buy</p>
-          <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Available Plots</h1>
-          <p class="text-forest-300 max-w-xl">
-            Legally clear residential plots across Varanasi, Sonbhadra, and Mirzapur. Filter by your requirements.
+          <p data-i18n="plots_header_label" class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Browse & Buy</p>
+          <h1 data-i18n="plots_header_title" class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Available Plots</h1>
+          <p data-i18n="plots_header_desc" class="text-forest-300 max-w-xl">
+            Legally clear residential plots across Sonbhadra and Mirzapur. Filter by your requirements.
           </p>
         </div>
       </div>
@@ -77,21 +78,25 @@
         <!-- Search + Controls -->
         <div class="bg-white rounded-2xl shadow-card p-4 mb-6">
           <div class="flex flex-col sm:flex-row gap-3">
-            <!-- Search bar -->
-            <div class="flex-1 relative">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-              <input id="search-input" type="text" placeholder="Search plots, location, project..." class="input-field pl-10" />
+            <!-- Phase Selection Toggles -->
+            <div class="flex-1 flex gap-2">
+              <button id="phase1-btn" class="flex-1 py-2.5 px-4 rounded-xl font-accent font-bold text-xs sm:text-sm transition-all border border-forest-600 bg-forest-600 text-white shadow-sm focus:outline-none">
+                <span data-i18n="plots_phase_1">Phase 1 (32 Delivered Projects)</span>
+              </button>
+              <button id="phase2-btn" class="flex-1 py-2.5 px-4 rounded-xl font-accent font-bold text-xs sm:text-sm transition-all border border-slate-200 bg-white text-slate-700 hover:border-forest-600 hover:text-forest-600 shadow-sm focus:outline-none">
+                <span data-i18n="plots_phase_2">Phase 2 (54 Delivered Settlements)</span>
+              </button>
             </div>
             <!-- Sorting & Filter Toggles -->
             <div class="flex gap-2">
               <select id="sort-by-select" class="input-field w-auto text-sm">
-                <option value="default">Sort: Default</option>
-                <option value="area-asc">Area: Small to Large</option>
-                <option value="area-desc">Area: Large to Small</option>
+                <option value="default" data-i18n="plots_sort_default">Sort: Default</option>
+                <option value="area-asc" data-i18n="plots_sort_area_asc">Area: Small to Large</option>
+                <option value="area-desc" data-i18n="plots_sort_area_desc">Area: Large to Small</option>
               </select>
               <button id="filter-toggle-btn" class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-700 hover:border-forest-400 font-accent font-medium text-sm transition-colors">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
-                Filters
+                <span data-i18n="plots_filters">Filters</span>
               </button>
               <!-- Grid/List View Toggles -->
               <div class="hidden sm:flex items-center gap-1 border border-slate-200 rounded-lg p-1">
@@ -109,44 +114,54 @@
           <div id="expanded-filters" class="mt-4 pt-4 border-t border-slate-100 hidden text-left">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div>
-                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">City</label>
+                <label data-i18n="plots_filter_city" class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">City</label>
                 <select id="city-select" class="input-field text-sm">
                   <!-- Dynamic Options -->
                 </select>
               </div>
               <div>
-                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Project</label>
+                <label data-i18n="plots_filter_project" class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Project</label>
                 <select id="project-select" class="input-field text-sm">
                   <!-- Dynamic Options -->
                 </select>
               </div>
               <div>
-                <label class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Availability</label>
+                <label data-i18n="plots_filter_availability" class="block text-xs font-accent font-semibold text-slate-500 uppercase tracking-wide mb-2">Availability</label>
                 <select id="status-select" class="input-field text-sm">
-                  <option value="">All Status</option>
-                  <option value="available">Available</option>
-                  <option value="reserved">Reserved</option>
-                  <option value="sold">Sold</option>
+                  <option value="" data-i18n="plots_status_all">All Status</option>
+                  <option value="available" data-i18n="plots_status_avail">Available</option>
+                  <option value="reserved" data-i18n="plots_status_res">Reserved</option>
+                  <option value="sold" data-i18n="plots_status_sold">Sold</option>
                 </select>
               </div>
-
             </div>
             <div class="flex justify-between items-center mt-4">
               <button id="clear-filters-btn" class="text-sm text-slate-500 hover:text-red-500 flex items-center gap-1 transition-colors">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> Clear all filters
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                <span data-i18n="plots_clear_filters">Clear all filters</span>
               </button>
-              <button onclick="document.getElementById('expanded-filters').classList.add('hidden')" class="text-sm font-accent font-semibold text-forest-600">Done</button>
+              <button onclick="document.getElementById('expanded-filters').classList.add('hidden')" class="text-sm font-accent font-semibold text-forest-600" data-i18n="plots_done">Done</button>
             </div>
           </div>
+        </div>
+
+        <!-- Pick & Drop USP Banner Container -->
+        <div id="usp-banner-container" class="mb-6"></div>
+
+        <!-- Phase Info/Description Container -->
+        <div class="text-left mb-6 bg-slate-100 rounded-xl px-4 py-3 border border-slate-200">
+          <p id="phase-desc" class="text-sm font-semibold text-slate-700" data-i18n="plots_phase_1_desc">
+            Phase 1 — 32 Completed Layout Projects
+          </p>
         </div>
 
         <!-- Results Counter & CTA -->
         <div class="flex items-center justify-between mb-5">
           <p class="text-slate-600 text-sm">
-            Showing <strong id="plots-result-count" class="text-slate-900">0</strong> plots
+            <span data-i18n="plots_showing">Showing</span> <strong id="plots-result-count" class="text-slate-900">0</strong> <span data-i18n="plots_result_count_suffix">plots</span>
           </p>
-          <button data-toggle="modal" data-title="Request Callback" class="btn-primary text-sm py-2">
-            Get Callback
+          <button data-toggle="modal" data-title-key="plots_get_callback" class="btn-primary text-sm py-2">
+            <span data-i18n="plots_get_callback">Get Callback</span>
           </button>
         </div>
 
@@ -155,9 +170,9 @@
           <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6 text-slate-400"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-slate-700 mb-2">No plots found</h3>
-          <p class="text-slate-500 mb-4">Try adjusting your search query or filters.</p>
-          <button id="plots-empty-clear-btn" class="btn-primary text-sm">Clear Filters</button>
+          <h3 data-i18n="plots_not_found_title" class="font-heading text-xl font-bold text-slate-700 mb-2">No plots found</h3>
+          <p data-i18n="plots_not_found_desc" class="text-slate-500 mb-4">Try adjusting your search query or filters.</p>
+          <button id="plots-empty-clear-btn" class="btn-primary text-sm" data-i18n="plots_clear_filters">Clear Filters</button>
         </div>
 
         <!-- Grid Container -->
@@ -178,11 +193,11 @@
       <div class="bg-white border-b border-slate-100 pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-left">
           <div class="flex items-center gap-2 text-sm text-slate-500">
-            <a href="index.html" class="hover:text-forest-600 transition-colors">Home</a>
+            <a href="index.html" data-i18n="plots_breadcrumb_home" class="hover:text-forest-600 transition-colors">Home</a>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <a href="plots.html" class="hover:text-forest-600 transition-colors">Plots</a>
+            <a href="plots.html" data-i18n="plots_breadcrumb_plots" class="hover:text-forest-600 transition-colors">Plots</a>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            <span id="breadcrumb-plot-name" class="text-slate-800 font-medium truncate">Plot Details</span>
+            <span id="breadcrumb-plot-name" data-i18n="plots_breadcrumb_details" class="text-slate-800 font-medium truncate">Plot Details</span>
           </div>
         </div>
       </div>
@@ -192,7 +207,7 @@
         <div class="mb-4 text-left">
           <a href="plots.html" class="btn-ghost text-sm inline-flex items-center gap-1.5">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Back to Listings
+            <span data-i18n="plots_back_listings">Back to Listings</span>
           </a>
         </div>
 

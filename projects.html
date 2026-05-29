@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Projects | Devashri Builders</title>
+    <title data-i18n="title_projects">Our Projects | Devashri Builders</title>
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap">
@@ -53,6 +53,7 @@
 
     <!-- JS Core & Data -->
     <script src="js/data.js" defer></script>
+    <script src="js/translations.js" defer></script>
     <script src="js/shared.js" defer></script>
     <script src="js/projects.js" defer></script>
   </head>
@@ -63,9 +64,9 @@
     <!-- Header -->
     <div class="bg-forest-800 pt-28 pb-12 text-left">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">All Developments</p>
-        <h1 class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Our Projects</h1>
-        <p class="text-forest-300 max-w-xl">
+        <p data-i18n="proj_header_label" class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">All Developments</p>
+        <h1 data-i18n="proj_header_title" class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Our Projects</h1>
+        <p data-i18n="proj_header_desc" class="text-forest-300 max-w-xl">
           From planned layouts to premium developments — explore all Devashri Builders plot projects across UP.
         </p>
       </div>
@@ -85,16 +86,16 @@
 
       <!-- Offer CTA Banner -->
       <div class="mt-16 bg-forest-700 rounded-2xl p-8 md:p-12 text-center text-white">
-        <p class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Pre-launch Offer</p>
-        <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
+        <p data-i18n="proj_prelaunch_label" class="text-forest-300 text-sm font-accent font-semibold tracking-widest uppercase mb-2">Pre-launch Offer</p>
+        <h2 data-i18n="proj_prelaunch_title" class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">
           Green Valley Enclave — Launching August 2025
         </h2>
-        <p class="text-forest-200 max-w-lg mx-auto mb-6 leading-relaxed">
-          Register your interest now for pre-launch pricing. 200 plots in a fully gated community on Mirzapur Road, Varanasi.
+        <p data-i18n="proj_prelaunch_desc" class="text-forest-200 max-w-lg mx-auto mb-6 leading-relaxed">
+          Register your interest now for pre-launch pricing. 200 plots in a fully gated community on Mirzapur Road, Mirzapur.
         </p>
-        <button class="btn-secondary" onclick="window.openLeadModal('Register Interest', 'Green Valley Enclave Pre-Launch')">
+        <button class="btn-secondary" onclick="window.openLeadModal(window.currentLang === 'hi' ? 'रुचि दर्ज करें' : 'Register Interest', 'Green Valley Enclave Pre-Launch')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          Register Interest
+          <span data-i18n="proj_prelaunch_btn">Register Interest</span>
         </button>
       </div>
     </main>

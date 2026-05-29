@@ -1,6 +1,14 @@
 // ── Devashri Builders — Shared UI & Logic ──
 
+// Initialize language state
+window.currentLang = localStorage.getItem('preferredLang') || 'en';
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Translate static page elements first
+  if (typeof window.translateStaticHtml === 'function') {
+    window.translateStaticHtml(window.currentLang);
+  }
+
   renderNavbar();
   renderFooter();
   renderWhatsAppButton();
@@ -8,6 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
   setupGlobalModalTriggers();
   setupScrollAnimations();
 });
+
+// Function to switch languages globally
+window.switchLanguage = function(lang) {
+  window.currentLang = lang;
+  localStorage.setItem('preferredLang', lang);
+
+  // Translate static page elements
+  if (typeof window.translateStaticHtml === 'function') {
+    window.translateStaticHtml(lang);
+  }
+
+  // Re-render shared components
+  renderNavbar();
+  renderFooter();
+  renderWhatsAppButton();
+  renderLeadModal();
+
+  // Re-render dynamic components on specific pages if their controllers exist
+  if (typeof renderFeaturedPlots === 'function') renderFeaturedPlots();
+  if (typeof renderOngoingProjectsTeaser === 'function') renderOngoingProjectsTeaser();
+  if (typeof renderLatestBlogsTeaser === 'function') renderLatestBlogsTeaser();
+  
+  if (typeof renderPlotsList === 'function') renderPlotsList();
+  if (typeof populateFilterOptions === 'function') populateFilterOptions();
+  
+  if (typeof renderProjectsList === 'function') renderProjectsList();
+  if (typeof setupProjectsFilterButtons === 'function') setupProjectsFilterButtons();
+  
+  if (typeof renderFeaturedPost === 'function') renderFeaturedPost();
+  if (typeof renderBlogCategories === 'function') renderBlogCategories();
+  if (typeof renderBlogList === 'function') renderBlogList();
+};
 
 // 1. Render Navbar
 function renderNavbar() {
@@ -19,11 +59,10 @@ function renderNavbar() {
   
   // Navigation Links configuration
   const navLinks = [
-    { label: 'Home', href: 'index.html', key: 'index.html' },
-    { label: 'Plots', href: 'plots.html', key: 'plots.html' },
-    { label: 'Projects', href: 'projects.html', key: 'projects.html' },
-    { label: 'About', href: 'about.html', key: 'about.html' },
-    { label: 'Contact', href: 'contact.html', key: 'contact.html' },
+    { label: window.getTranslation('nav_home'), href: 'index.html', key: 'index.html' },
+    { label: window.getTranslation('nav_plots'), href: 'plots.html', key: 'plots.html' },
+    { label: window.getTranslation('nav_about'), href: 'about.html', key: 'about.html' },
+    { label: window.getTranslation('nav_contact'), href: 'contact.html', key: 'contact.html' },
   ];
 
   // Check which page is currently active
@@ -43,20 +82,6 @@ function renderNavbar() {
     const logoHtml = `
       <a href="index.html" class="flex items-center gap-3 group">
         <svg viewBox="0 0 100 100" class="w-11 h-11 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="logo-top" x1="15" y1="20" x2="50" y2="45" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#F1E3D3" />
-              <stop offset="100%" stop-color="#C7A384" />
-            </linearGradient>
-            <linearGradient id="logo-left" x1="15" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#C69C7E" />
-              <stop offset="100%" stop-color="#A27A5C" />
-            </linearGradient>
-            <linearGradient id="logo-right" x1="85" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#966A4D" />
-              <stop offset="100%" stop-color="#67442D" />
-            </linearGradient>
-          </defs>
           <polygon points="15,20 85,20 50,45" fill="url(#logo-top)" />
           <polygon points="15,20 50,45 50,80" fill="url(#logo-left)" />
           <polygon points="85,20 50,45 50,80" fill="url(#logo-right)" />
@@ -82,6 +107,22 @@ function renderNavbar() {
 
     const phoneClass = isTransparent ? 'text-white/90 hover:text-white' : 'text-slate-700 hover:text-forest-600';
 
+    // Language Toggle Switch
+    const toggleBgClass = isTransparent ? 'bg-white/15 border-white/20' : 'bg-slate-100 border-slate-200';
+    const activeTextClassEN = window.currentLang === 'en' 
+      ? (isTransparent ? 'bg-white text-slate-900 font-semibold' : 'bg-forest-600 text-white font-semibold')
+      : (isTransparent ? 'text-white/80 hover:text-white' : 'text-slate-500 hover:text-slate-900');
+    const activeTextClassHI = window.currentLang === 'hi' 
+      ? (isTransparent ? 'bg-white text-slate-900 font-semibold' : 'bg-forest-600 text-white font-semibold')
+      : (isTransparent ? 'text-white/80 hover:text-white' : 'text-slate-500 hover:text-slate-900');
+
+    const langToggleHtml = `
+      <div class="flex items-center border rounded-full p-0.5 text-[11px] font-accent ${toggleBgClass} select-none">
+        <button onclick="window.switchLanguage('en')" class="px-2 py-0.5 rounded-full transition-all duration-200 focus:outline-none ${activeTextClassEN}">EN</button>
+        <button onclick="window.switchLanguage('hi')" class="px-2 py-0.5 rounded-full transition-all duration-200 focus:outline-none ${activeTextClassHI}">हिन्दी</button>
+      </div>
+    `;
+
     return `
       <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgThemeClass}">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,14 +135,15 @@ function renderNavbar() {
               ${navItemsHtml}
             </nav>
 
-            <!-- CTA + Mobile Toggle -->
+            <!-- CTA + Language Toggle + Mobile Toggle -->
             <div class="flex items-center gap-3">
-              <a href="tel:+917752957897" class="hidden md:flex items-center gap-1.5 font-accent text-sm font-semibold transition-colors ${phoneClass}">
+              ${langToggleHtml}
+              <a href="tel:+917752957897" class="hidden lg:flex items-center gap-1.5 font-accent text-sm font-semibold transition-colors ${phoneClass}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 <span>77529 57897</span>
               </a>
               <a href="plots.html" class="hidden md:inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-700 text-white font-accent font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow">
-                View Plots
+                ${window.getTranslation('nav_view_plots')}
               </a>
               <button id="mobile-nav-toggle" class="md:hidden p-2 rounded-md transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'}" aria-label="Toggle menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 nav-menu-icon"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -185,6 +227,10 @@ function renderFooter() {
   const footerContainer = document.getElementById('footer');
   if (!footerContainer) return;
 
+  const currentPath = window.location.pathname;
+  const isHi = window.currentLang === 'hi';
+  const alertSuccessMsg = isHi ? 'सफलतापूर्वक सब्सक्राइब किया गया!' : 'Subscribed successfully!';
+
   footerContainer.innerHTML = `
     <footer class="bg-slate-900 text-slate-300">
       <!-- Newsletter Bar -->
@@ -192,12 +238,12 @@ function renderFooter() {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <p class="text-xs font-accent font-semibold tracking-widest uppercase text-forest-200 mb-1">Stay Informed</p>
-              <h3 class="font-heading text-2xl font-bold text-white">Get new plot alerts & investment tips</h3>
+              <p class="text-xs font-accent font-semibold tracking-widest uppercase text-forest-200 mb-1">${window.getTranslation('footer_stay_informed')}</p>
+              <h3 class="font-heading text-2xl font-bold text-white">${window.getTranslation('footer_alert_sub')}</h3>
             </div>
-            <form class="flex gap-2 w-full md:w-auto min-w-[320px]" onsubmit="event.preventDefault(); alert('Subscribed successfully!'); this.reset();">
-              <input type="email" placeholder="Your email address" required class="flex-1 px-4 py-3 rounded-lg bg-forest-800/60 border border-forest-600 text-white placeholder-forest-300 text-sm focus:outline-none focus:ring-2 focus:ring-white/40" />
-              <button type="submit" class="px-5 py-3 bg-earth-500 hover:bg-earth-600 text-white font-accent font-semibold text-sm rounded-lg transition-colors whitespace-nowrap">Subscribe</button>
+            <form class="flex gap-2 w-full md:w-auto min-w-[320px]" onsubmit="event.preventDefault(); alert('${alertSuccessMsg}'); this.reset();">
+              <input type="email" placeholder="${window.getTranslation('footer_email_placeholder')}" required class="flex-1 px-4 py-3 rounded-lg bg-forest-800/60 border border-forest-600 text-white placeholder-forest-300 text-sm focus:outline-none focus:ring-2 focus:ring-white/40" />
+              <button type="submit" class="px-5 py-3 bg-earth-500 hover:bg-earth-600 text-white font-accent font-semibold text-sm rounded-lg transition-colors whitespace-nowrap">${window.getTranslation('footer_subscribe')}</button>
             </form>
           </div>
         </div>
@@ -208,7 +254,7 @@ function renderFooter() {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <!-- Brand -->
-            <div class="lg:col-span-1">
+            <div class="lg:col-span-2">
               <a href="index.html" class="flex items-center gap-3 mb-4">
                 <svg viewBox="0 0 100 100" class="w-11 h-11 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <polygon points="15,20 85,20 50,45" fill="url(#logo-top)" />
@@ -221,7 +267,7 @@ function renderFooter() {
                 </div>
               </a>
               <p class="text-sm text-slate-400 leading-relaxed mb-5">
-                Your trusted partner for residential plots in Uttar Pradesh. We believe every family deserves a piece of earth to call their own.
+                ${window.getTranslation('footer_brand_desc')}
               </p>
               <div class="flex items-center gap-3">
                 <a href="#" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-forest-600 flex items-center justify-center transition-colors">
@@ -237,36 +283,23 @@ function renderFooter() {
             </div>
 
             <!-- Quick Links -->
-            <div>
-              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">Quick Links</h4>
+            <div class="lg:col-span-1">
+              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">${window.getTranslation('footer_quick_links')}</h4>
               <ul class="space-y-2.5">
-                <li><a href="plots.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">View All Plots</a></li>
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Our Projects</a></li>
-                <li><a href="about.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">About Devashri Builders</a></li>
-                <li><a href="contact.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Contact Us</a></li>
-                <li><a href="#" data-toggle="modal" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Book Site Visit</a></li>
-              </ul>
-            </div>
-
-            <!-- Projects -->
-            <div>
-              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">Our Projects</h4>
-              <ul class="space-y-2.5">
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Kashi Puram Green City</a></li>
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Vinayak Puram Society</a></li>
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Bichchhi Residential Layout</a></li>
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Green Valley Enclave</a></li>
-                <li><a href="projects.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">Surya Nagar Colony</a></li>
+                <li><a href="plots.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_plots')}</a></li>
+                <li><a href="about.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_about')}</a></li>
+                <li><a href="contact.html" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('nav_contact')}</a></li>
+                <li><a href="#" data-toggle="modal" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${window.getTranslation('hero_cta_visit')}</a></li>
               </ul>
             </div>
 
             <!-- Contact -->
             <div>
-              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">Get in Touch</h4>
+              <h4 class="font-accent font-semibold text-white text-sm tracking-wide mb-4">${window.getTranslation('footer_get_in_touch')}</h4>
               <ul class="space-y-4">
                 <li class="flex gap-3">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-forest-400 flex-shrink-0 mt-0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span class="text-sm text-slate-400">Near Chopan Hospital, Chopan-Sindhuriya Marg, Varanasi, UP 221001</span>
+                  <span class="text-sm text-slate-400">${window.getTranslation('footer_address')}</span>
                 </li>
                 <li>
                   <a href="tel:+917752957897" class="flex gap-3 text-slate-400 hover:text-forest-400 transition-colors">
@@ -289,13 +322,13 @@ function renderFooter() {
       <!-- Bottom Bar -->
       <div class="border-t border-slate-800 py-5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p class="text-xs text-slate-500">&copy; ${new Date().getFullYear()} Devashri Builders Plots & Land. All rights reserved.</p>
+          <p class="text-xs text-slate-500">&copy; ${new Date().getFullYear()} Devashri Builders Plots & Land. ${isHi ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}</p>
           <div class="flex items-center gap-4 text-xs text-slate-500">
-            <a href="about.html" class="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="about.html" class="hover:text-slate-400 transition-colors">${window.getTranslation('footer_privacy')}</a>
             <span>·</span>
-            <a href="about.html" class="hover:text-slate-400 transition-colors">Terms of Use</a>
+            <a href="about.html" class="hover:text-slate-400 transition-colors">${window.getTranslation('footer_terms')}</a>
             <span>·</span>
-            <span>Legal Documents Available on Request</span>
+            <span>${window.getTranslation('footer_legal_docs')}</span>
           </div>
         </div>
       </div>
@@ -308,8 +341,13 @@ function renderWhatsAppButton() {
   const waContainer = document.getElementById('whatsapp-btn');
   if (!waContainer) return;
 
+  const isHi = window.currentLang === 'hi';
+  const waText = isHi 
+    ? "नमस्ते देवश्री बिल्डर्स, मैं आपके प्लॉट्स में रुचि रखता हूँ। कृपया विवरण साझा करें।" 
+    : "Hi Devashri Builders, I'm interested in your plots. Please share details.";
+
   waContainer.innerHTML = `
-    <a href="https://wa.me/917752957897?text=Hi%20Devashri%20Builders%2C%20I'm%20interested%20in%20your%20plots.%20Please%20share%20details." target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20bc5a] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/917752957897?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20bc5a] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Chat on WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-white">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
@@ -322,6 +360,9 @@ function renderLeadModal() {
   const modalContainer = document.getElementById('lead-modal');
   if (!modalContainer) return;
 
+  const isHi = window.currentLang === 'hi';
+  const submitText = isHi ? 'सबमिट किया जा रहा है...' : 'Submitting...';
+
   modalContainer.innerHTML = `
     <div id="modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm modal-close-trigger"></div>
@@ -331,8 +372,8 @@ function renderLeadModal() {
           <button class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors modal-close-trigger">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
-          <p class="text-forest-200 text-xs font-accent font-semibold tracking-widest uppercase mb-1">Free Consultation</p>
-          <h2 class="font-heading text-xl font-bold text-white" id="modal-title">Book a Free Site Visit</h2>
+          <p class="text-forest-200 text-xs font-accent font-semibold tracking-widest uppercase mb-1">${window.getTranslation('modal_free_consult')}</p>
+          <h2 class="font-heading text-xl font-bold text-white" id="modal-title">${window.getTranslation('modal_title')}</h2>
           <p class="text-forest-300 text-sm mt-1 hidden" id="modal-subtitle"></p>
         </div>
 
@@ -340,29 +381,29 @@ function renderLeadModal() {
           <!-- Form State -->
           <form id="modal-lead-form" class="space-y-4">
             <div>
-              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">Your Name *</label>
-              <input type="text" required placeholder="e.g. Ramesh Gupta" class="input-field" id="modal-name-input" />
+              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">${window.getTranslation('modal_label_name')}</label>
+              <input type="text" required placeholder="${window.getTranslation('modal_placeholder_name')}" class="input-field" id="modal-name-input" />
             </div>
             <div>
-              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">Mobile Number *</label>
+              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">${window.getTranslation('modal_label_phone')}</label>
               <div class="relative">
                 <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm">+91</span>
-                <input type="tel" required placeholder="98765 43210" class="input-field pl-12" maxlength="10" id="modal-phone-input" />
+                <input type="tel" required placeholder="${window.getTranslation('modal_placeholder_phone')}" class="input-field pl-12" maxlength="10" id="modal-phone-input" />
               </div>
             </div>
             <div>
-              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">Preferred Visit Date</label>
+              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">${window.getTranslation('modal_label_date')}</label>
               <input type="date" class="input-field" id="modal-date-input" />
             </div>
             <div>
-              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">Message (optional)</label>
-              <textarea rows="2" placeholder="Any specific queries or requirements?" class="input-field resize-none" id="modal-msg-input"></textarea>
+              <label class="block text-sm font-accent font-medium text-slate-700 mb-1.5">${window.getTranslation('modal_label_msg')}</label>
+              <textarea rows="2" placeholder="${window.getTranslation('modal_placeholder_msg')}" class="input-field resize-none" id="modal-msg-input"></textarea>
             </div>
             <button type="submit" class="btn-primary w-full justify-center py-3.5 text-base" id="modal-submit-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              Book Site Visit
+              <span id="modal-submit-text">${window.getTranslation('modal_submit')}</span>
             </button>
-            <p class="text-center text-xs text-slate-400">We respect your privacy. No spam, ever.</p>
+            <p class="text-center text-xs text-slate-400">${window.getTranslation('modal_privacy')}</p>
           </form>
 
           <!-- Success State -->
@@ -370,13 +411,13 @@ function renderLeadModal() {
             <div class="w-16 h-16 bg-forest-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-8 h-8 text-forest-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
-            <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">Request Submitted!</h3>
+            <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">${window.getTranslation('modal_success_title')}</h3>
             <p class="text-slate-600 text-sm leading-relaxed mb-6">
-              Our team will call you within 2 hours to confirm your site visit. You can also WhatsApp us for faster response.
+              ${window.getTranslation('modal_success_desc')}
             </p>
             <div class="flex gap-3 justify-center">
-              <a href="https://wa.me/917752957897" target="_blank" class="btn-primary text-sm py-2.5">Open WhatsApp</a>
-              <button class="btn-outline text-sm py-2.5 modal-close-trigger">Close</button>
+              <a href="https://wa.me/917752957897" target="_blank" class="btn-primary text-sm py-2.5">${window.getTranslation('modal_success_wa')}</a>
+              <button class="btn-outline text-sm py-2.5 modal-close-trigger">${window.getTranslation('modal_success_close')}</button>
             </div>
           </div>
         </div>
@@ -404,7 +445,7 @@ function renderLeadModal() {
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
         </svg>
-        Submitting...
+        ${submitText}
       `;
 
       setTimeout(() => {
@@ -449,7 +490,7 @@ window.openLeadModal = function(title = 'Book a Free Site Visit', subtitle = '')
     submitBtn.disabled = false;
     submitBtn.innerHTML = `
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-      Book Site Visit
+      <span>${window.getTranslation('modal_submit')}</span>
     `;
     if (form) form.reset();
   }
@@ -483,7 +524,8 @@ function setupGlobalModalTriggers() {
     const trigger = e.target.closest('[data-toggle="modal"]');
     if (trigger) {
       e.preventDefault();
-      const title = trigger.getAttribute('data-title') || 'Book a Free Site Visit';
+      const titleKey = trigger.getAttribute('data-title-key') || '';
+      const title = titleKey ? window.getTranslation(titleKey) : (trigger.getAttribute('data-title') || 'Book a Free Site Visit');
       const subtitle = trigger.getAttribute('data-subtitle') || '';
       window.openLeadModal(title, subtitle);
     }
