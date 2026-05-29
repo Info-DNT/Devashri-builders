@@ -52,10 +52,20 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- JS Core & Data -->
-    <script src="js/data.js" defer></script>
-    <script src="js/translations.js" defer></script>
-    <script src="js/shared.js" defer></script>
-    <script src="js/projects.js" defer></script>
+    <script src="js/data.js?v=1.0.1" defer></script>
+    <script src="js/translations.js?v=1.0.1" defer></script>
+    <script src="js/shared.js?v=1.0.1" defer></script>
+    <script src="js/projects.js?v=1.0.1" defer></script>
+
+    <!-- Error Reporter -->
+    <script>
+      window.addEventListener('error', function(e) {
+        const div = document.createElement('div');
+        div.className = 'bg-red-600 text-white p-4 fixed top-0 left-0 w-full z-[9999] text-xs font-mono whitespace-pre-wrap';
+        div.innerHTML = '<strong>Client JS Error:</strong> ' + e.message + ' at ' + e.filename + ':' + e.lineno + ':' + e.colno + (e.error && e.error.stack ? '\n' + e.error.stack : '');
+        document.body.appendChild(div);
+      });
+    </script>
   </head>
   <body class="bg-slate-50">
     <!-- Navbar Container -->
