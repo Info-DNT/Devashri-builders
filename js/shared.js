@@ -82,6 +82,20 @@ function renderNavbar() {
     const logoHtml = `
       <a href="index.html" class="flex items-center gap-3 group">
         <svg viewBox="0 0 100 100" class="w-11 h-11 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logo-top" x1="15" y1="20" x2="50" y2="45" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#F1E3D3" />
+              <stop offset="100%" stop-color="#C7A384" />
+            </linearGradient>
+            <linearGradient id="logo-left" x1="15" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#C69C7E" />
+              <stop offset="100%" stop-color="#A27A5C" />
+            </linearGradient>
+            <linearGradient id="logo-right" x1="85" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#966A4D" />
+              <stop offset="100%" stop-color="#67442D" />
+            </linearGradient>
+          </defs>
           <polygon points="15,20 85,20 50,45" fill="url(#logo-top)" />
           <polygon points="15,20 50,45 50,80" fill="url(#logo-left)" />
           <polygon points="85,20 50,45 50,80" fill="url(#logo-right)" />
@@ -257,6 +271,20 @@ function renderFooter() {
             <div class="lg:col-span-1">
               <a href="index.html" class="flex items-center gap-3 mb-4">
                 <svg viewBox="0 0 100 100" class="w-11 h-11 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="logo-top" x1="15" y1="20" x2="50" y2="45" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#F1E3D3" />
+                      <stop offset="100%" stop-color="#C7A384" />
+                    </linearGradient>
+                    <linearGradient id="logo-left" x1="15" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#C69C7E" />
+                      <stop offset="100%" stop-color="#A27A5C" />
+                    </linearGradient>
+                    <linearGradient id="logo-right" x1="85" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#966A4D" />
+                      <stop offset="100%" stop-color="#67442D" />
+                    </linearGradient>
+                  </defs>
                   <polygon points="15,20 85,20 50,45" fill="url(#logo-top)" />
                   <polygon points="15,20 50,45 50,80" fill="url(#logo-left)" />
                   <polygon points="85,20 50,45 50,80" fill="url(#logo-right)" />
