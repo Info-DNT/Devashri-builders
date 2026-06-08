@@ -327,8 +327,6 @@ function renderFooter() {
               <ul class="space-y-2.5">
                 <li><a href="projects.html?id=kashi-puram" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'काशी पुरम ग्रीन सिटी' : 'Kashi Puram Green City'}</a></li>
                 <li><a href="projects.html?id=vinayak-puram" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'विनायक पुरम सोसाइटी' : 'Vinayak Puram Society'}</a></li>
-                <li><a href="projects.html?id=bichchhi-layout" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'बिछी आवासीय लेआउट' : 'Bichchhi Residential Layout'}</a></li>
-                <li><a href="projects.html?id=green-valley" class="text-sm text-slate-400 hover:text-forest-400 transition-colors">${isHi ? 'ग्रीन वैली एन्क्लेव' : 'Green Valley Enclave'}</a></li>
               </ul>
             </div>
 
